@@ -23,7 +23,6 @@ Intergated with mailing service,uploading image service and so on.
   php composer.phar require lee/service-bundle
   ```
 ## Sample code
-coming soon ......
   ```php
   require 'vendor/autoload.php';
   $config = array(
