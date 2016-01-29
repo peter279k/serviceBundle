@@ -11,6 +11,7 @@ Intergating with mailing service,uploading image service and so on.
 | [Imgur](http://imgur.com/)       | Yes   | uploading images service |
 | [bit.ly](https://bitly.com/)      | No    | shorten url service |
 | [goo.gl](https://goo.gl/)      | No    | shorten url service |
+|[McAf.ee](https://community.mcafee.com/docs/DOC-1991)| No | shorten url service |
 
 ## Usage
   Install Package
