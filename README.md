@@ -23,6 +23,7 @@ Intergated with mailing service,uploading image service and so on.
   php composer.phar require lee/service-bundle
   ```
 ## Sample code
+  Mailgun: a sending mail service
   ```php
   require 'vendor/autoload.php';
   $config = array(
