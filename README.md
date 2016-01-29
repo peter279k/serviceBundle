@@ -48,3 +48,15 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
+  Imgur: a uploading images service
+  ```php
+  require 'vendor/autoload.php';
+  $config = array(
+		'service-name' => 'imgur',
+		'clientID' => 'imgur-client-id',
+		'filePath' => '/path/to/image.png'
+  );
+  $bundle = new peter\components\serviceBundle($config);
+  //return json format (mailgun standard api response via cURL)
+  var_dump($bundle -> sendReq());
+  ```
