@@ -36,6 +36,11 @@ Intergating with mailing service,uploading image service and so on.
       'api-key' => 'mailgun-api-key',
       //e.g. sandbox5099cXXXXXXXXXXXXXXXXXXX
       'domain-name' => 'mailgun-domain-name'
+      'from' => 'peter279k@gmail.com',
+      'to' => 'peter279k@gmail.com',
+      'subject' => 'Hello',
+      //contents supported only plain text now.
+      'contents' => 'Mailgun is awesome !'
   );
   $bundle = new peter\components\serviceBundle($config);
   //return json format (mailgun standard api response)
