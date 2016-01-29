@@ -48,7 +48,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
-  Imgur: a uploading images service
+  Imgur: an uploading images service
   ```php
   require 'vendor/autoload.php';
   $config = array(
