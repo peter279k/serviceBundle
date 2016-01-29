@@ -12,7 +12,6 @@ Intergated with mailing service,uploading image service and so on.
 | [goo.gl](https://goo.gl/)      | No    |
 
 ## Usage
->>>
   Install Package
   We strongly recommended using [composer](https://getcomposer.org)
   Using composer
@@ -23,6 +22,5 @@ Intergated with mailing service,uploading image service and so on.
   ```bash
   php composer.phar require lee/service-bundle
   ```
->>>
 ## sample code
 coming soon ......
