@@ -34,5 +34,6 @@ Intergated with mailing service,uploading image service and so on.
       'domain-name' => 'mailgun-domain-name'
   );
   $bundle = new peter\components\serviceBundle($config);
+  //return json format (mailgun standard api response)
   var_dump($bundle -> sendReq());
   ```
