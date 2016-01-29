@@ -3,14 +3,14 @@ Intergating with mailing service,uploading image service and so on.
 
 ## Following service table is about supporting status
 
-| service-name|support|
-|-------------|-------|
-| [mailgun](https://www.mailgun.com/)| Yes   |
-| [mailjet](http://dev.mailjet.com/guides/?php#about-the-mailjet-restful-api) | No |
-| [sendgrid](https://sendgrid.com/)    | No    |
-| [Imgur](http://imgur.com/)       | Yes   |
-| [bit.ly](https://bitly.com/)      | No    |
-| [goo.gl](https://goo.gl/)      | No    |
+| service-name|support|service-type|
+|-------------|-------|------------|
+| [mailgun](https://www.mailgun.com/)| Yes   | mailing service |
+| [mailjet](http://dev.mailjet.com/guides/?php#about-the-mailjet-restful-api) | No | mailing service |
+| [sendgrid](https://sendgrid.com/)    | No    | mailing service |
+| [Imgur](http://imgur.com/)       | Yes   | uploading images service |
+| [bit.ly](https://bitly.com/)      | No    | shorten url service |
+| [goo.gl](https://goo.gl/)      | No    | shorten url service |
 
 ## Usage
   Install Package
