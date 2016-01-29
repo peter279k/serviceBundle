@@ -1,6 +1,8 @@
 # serviceBundle
 Intergating with mailing service,uploading image service and so on.
 
+It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
+
 ## Following service table is about supporting status
 
 | service-name|support|service-type|
@@ -43,6 +45,6 @@ Intergating with mailing service,uploading image service and so on.
       'contents' => 'Mailgun is awesome !'
   );
   $bundle = new peter\components\serviceBundle($config);
-  //return json format (mailgun standard api response)
+  //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
