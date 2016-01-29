@@ -22,5 +22,17 @@ Intergated with mailing service,uploading image service and so on.
   ```bash
   php composer.phar require lee/service-bundle
   ```
-## sample code
+## Sample code
 coming soon ......
+  ```php
+  require 'vendor/autoload.php';
+  $config = array(
+      'service-name' => 'mailgun',
+      //e.g. key-98dXXXXXXX
+      'api-key' => 'mailgun-api-key',
+      //e.g. sandbox5099cXXXXXXXXXXXXXXXXXXX
+      'domain-name' => 'mailgun-domain-name'
+  );
+  $bundle = new peter\components\serviceBundle($config);
+  var_dump($bundle -> sendReq());
+  ```
