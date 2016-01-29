@@ -1,7 +1,7 @@
 # serviceBundle
-Intergated with mailing service,uploading image service and so on.
+Intergating with mailing service,uploading image service and so on.
 
-## Following service table about supporting status
+## Following service table is about supporting status
 
 | service-name|support|
 |-------------|-------|
