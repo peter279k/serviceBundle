@@ -12,4 +12,16 @@ Intergated with mailing service,uploading image service and so on.
 | [goo.gl](https://goo.gl/)      | No    |
 
 ## Usage
-coming soon......
+>>>
+  Install Package
+  We strongly recommended using [composer](https://getcomposer.org)
+  Using composer
+  ```bash
+  curl -sS https://getcomposer.org/installer | php
+  ```
+  Using this command
+  ```bash
+  php composer.phar require lee/service-bundle
+  ```
+## sample code
+coming soon ......
