@@ -6,6 +6,7 @@ Intergated with mailing service,uploading image service and so on.
 | service-name|support|
 |-------------|-------|
 | [mailgun](https://www.mailgun.com/)| Yes   |
+| [mailjet](http://dev.mailjet.com/guides/?php#about-the-mailjet-restful-api) | No |
 | [sendgrid](https://sendgrid.com/)    | No    |
 | [Imgur](http://imgur.com/)       | Yes   |
 | [bit.ly](https://bitly.com/)      | No    |
