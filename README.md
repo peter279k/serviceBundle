@@ -15,8 +15,10 @@ Intergating with mailing service,uploading image service and so on.
 
 ## Usage
   Install Package
+  
   We strongly recommended using [composer](https://getcomposer.org)
-  Using composer
+  
+  Getting composer
   ```bash
   curl -sS https://getcomposer.org/installer | php
   ```
