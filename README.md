@@ -44,7 +44,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       //contents supported only plain text now.
       'contents' => 'Mailgun is awesome !'
   );
-  $bundle = new peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBundle($config);
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -56,7 +56,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'clientID' => 'imgur-client-id',
 		'filePath' => '/path/to/image.png'
   );
-  $bundle = new peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBundle($config);
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
