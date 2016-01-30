@@ -83,5 +83,30 @@
 				return $res -> json();
 			}
 		}
+		
+		private function generateUrl() {
+			if($this -> configs["service-name"] === "McAf.ee") {
+				
+			}
+			else if($this -> configs["service-name"] === "bit.ly") {
+				
+			}
+			else {
+				//default: goo.gl
+				$apiURL = 'https://www.googleapis.com/urlshortener/v1/url?key=' . $this -> configs["key"];
+	
+				$client = new GuzzleHttp\Client([
+					'defaults' => [
+						'headers' => ['Content-Type', 'application/json']
+					]
+				]);
+
+				$res = $client -> post($apiURL, [
+					'json'=>['longUrl' => $this -> configs["longUrl"]]
+				]);
+			}
+			
+			return $res -> json();
+		}
 	}
 ?>
