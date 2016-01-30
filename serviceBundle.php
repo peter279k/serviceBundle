@@ -86,7 +86,9 @@
 		
 		private function generateUrl() {
 			if($this -> configs["service-name"] === "McAf.ee") {
-				
+				$apiURL = "http://mcaf.ee/api/shorten?input_url=" . $this -> configs["longUrl"];
+				$client = new GuzzleHttp\Client();
+				$res = $client -> get($apiURL);
 			}
 			else if($this -> configs["service-name"] === "bit.ly") {
 				$apiURL = 'http://api.bit.ly/v3/shorten?login=' . $this -> configs["login"] . '&apiKey=' . $this -> configs['apiKey'] . '&uri='.urlencode($this -> configs["longUrl"]);
