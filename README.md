@@ -57,6 +57,42 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'filePath' => '/path/to/image.png'
   );
   $bundle = new \peter\components\serviceBundle($config);
-  //return json format (mailgun standard api response via cURL)
+  //return json format (Imgur standard api response via cURL)
+  var_dump($bundle -> sendReq());
+  ```
+  McAf: a shorten url service
+  ```php
+  require 'vendor/autoload.php';
+  $config = array(
+		'service-name' => 'McAf.ee',
+		'longUrl' => 'your-long-url'
+  );
+  $bundle = new \peter\components\serviceBundle($config);
+  //return json format (McAf standard api response via cURL)
+  var_dump($bundle -> sendReq());
+  ```
+  goo.gl: a shorten url service
+  ```php
+  require 'vendor/autoload.php';
+  $config = array(
+		'service-name' => 'goo.gl',
+		'apiKey' => 'your-api-key',
+		'longUrl' => 'your-long-url'
+  );
+  $bundle = new \peter\components\serviceBundle($config);
+  //return json format (goo.gl standard api response via cURL)
+  var_dump($bundle -> sendReq());
+  ```
+  bit.ly: a shorten url service
+  ```php
+  require 'vendor/autoload.php';
+  $config = array(
+		'service-name' => 'bit.ly',
+		'login' => 'your-login',
+		'apiKey' => 'your-api-key',
+		'longUrl' => 'your-long-url'
+  );
+  $bundle = new \peter\components\serviceBundle($config);
+  //return json format (bit.ly standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```

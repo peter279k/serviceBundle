@@ -97,7 +97,7 @@
 			}
 			else {
 				//default: goo.gl
-				$apiURL = 'https://www.googleapis.com/urlshortener/v1/url?key=' . $this -> configs["key"];
+				$apiURL = 'https://www.googleapis.com/urlshortener/v1/url?key=' . $this -> configs["apiKey"];
 	
 				$client = new GuzzleHttp\Client([
 					'defaults' => [
