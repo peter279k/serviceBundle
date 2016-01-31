@@ -10,6 +10,11 @@
         "guzzlehttp/guzzle": "5.3.0"
     },
     "license": "MIT",
+     "autoload": {
+        "psr-4": {
+            "peter\\components\\serviveBundle\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "peter279k",
