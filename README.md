@@ -44,7 +44,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       //contents supported only plain text now.
       'contents' => 'Mailgun is awesome !'
   );
-  $bundle = new \peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBund\serviceBundle($config);
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -56,7 +56,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'clientID' => 'imgur-client-id',
 		'filePath' => '/path/to/image.png'
   );
-  $bundle = new \peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
   //return json format (Imgur standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -67,7 +67,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'service-name' => 'McAf.ee',
 		'longUrl' => 'your-long-url'
   );
-  $bundle = new \peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
   //return json format (McAf standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -79,7 +79,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
   );
-  $bundle = new \peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBundl\serviceBundle($config);
   //return json format (goo.gl standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -92,7 +92,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
   );
-  $bundle = new \peter\components\serviceBundle($config);
+  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
   //return json format (bit.ly standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
