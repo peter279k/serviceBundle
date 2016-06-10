@@ -1,5 +1,5 @@
 # serviceBundle
-Intergating with mailing service,uploading image service and so on.
+Integrating with mailing service,uploading image service and so on.
 
 It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 
