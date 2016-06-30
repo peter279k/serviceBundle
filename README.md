@@ -16,7 +16,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 |[McAf.ee](https://community.mcafee.com/docs/DOC-1991)| Yes | shorten url service |
 
 ## Usage
-  Install Package
+###Install Package
   
   We strongly recommended using [composer](https://getcomposer.org)
   
