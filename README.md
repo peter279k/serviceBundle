@@ -97,5 +97,5 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   var_dump($bundle -> sendReq());
   ```
 ###Changelog
-	2016/07/20
-	+ Using the new version of Guzzle 5 and avoid the Httpoxy vulnerability.
+####2016/07/20
++ Using the new version of Guzzle 5 and avoid the Httpoxy vulnerability.
