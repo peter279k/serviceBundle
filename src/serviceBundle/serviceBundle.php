@@ -74,7 +74,7 @@
 				$httpClient = new \GuzzleHttp\Client($httpConfig);
 				$httpClient -> setDefaultOption('verify', false);
 
-				$res = $client -> post('https://api.imgur.com/3/image.json', [
+				$res = $httpClient -> post('https://api.imgur.com/3/image.json', [
 					'body'=>[
 						'image' => base64_encode($imageFile)
 					]
