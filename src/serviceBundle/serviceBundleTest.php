@@ -68,6 +68,8 @@
 			$config = array(
 				'service-name' => 'unknownService'
 			);
+			
+			return $config;
 		}
 		
 		public function mailgunTest() {
