@@ -90,10 +90,22 @@
 		}
 		
 		public function imgurTest() {
+			
+			$path = __DIR__;
+			$os = PHP_OS;
+			
+			if($os == "WINNT") {
+				$path = str_replace('\\', "\\\\", $path);
+				$path .= "\\image.PNG";
+			}
+			else {
+				$path .= "/image.PNG";
+			}
+			
 			$config = array(
 				'service-name' => 'imgur',
 				'clientID' => '3aa5c24753e1656',
-				'filePath' => './image.PNG'
+				'filePath' => $path
 			);
 			
 			return $config;
