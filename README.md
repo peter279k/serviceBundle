@@ -1,4 +1,4 @@
-# serviceBundle
+# serviceBundle [![Build Status](https://travis-ci.org/peter279k/serviceBundle.svg?branch=v1.2.8)](https://travis-ci.org/peter279k/serviceBundle)
 Integrating with mailing service,uploading image service and so on.
 
 It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
