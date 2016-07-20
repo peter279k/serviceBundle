@@ -5,8 +5,9 @@
 	type="coverage-text" target="src/serviceBundle/" charset="UTF-8">
 	
     <filter>
+		
 		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">./src/serviceBundle/serviceBundle.php</directory>
+			<directory suffix=".php">./src/serviceBundle/test/</directory>
 		</whitelist>
 	</filter>
 	
