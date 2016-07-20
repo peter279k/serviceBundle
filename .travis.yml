@@ -15,3 +15,5 @@ notifications:
     on_failure: always
 
 script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-html
+
+after_success: bash <(curl -s https://codecov.io/bash)
