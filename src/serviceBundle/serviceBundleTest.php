@@ -1,11 +1,9 @@
 <?php
 	$os = PHP_OS;
-	if($os != "WINNT")
-		require __DIR__ . "/vendor/autoload.php";
-	else {
-		chdir(__DIR__);
-		require "vendor/autoload.php";
-	}
+	if($os == "WINNT")
+		require __FILE__ ."\\vendor\\autoload.php";
+	else
+		require __FILE__ ."/vendor/autoload.php";
 	
 	require "serviceBundle.php";
 	/*
