@@ -104,3 +104,6 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 ####2016/07/21
 + version: v1.2.8
 + Fix the uploading image via imgur service bug.
+####2016/07/21
++ version: v1.2.9
++ adding some information images
