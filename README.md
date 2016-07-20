@@ -37,7 +37,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       //e.g. key-98dXXXXXXX
       'api-key' => 'mailgun-api-key',
       //e.g. sandbox5099cXXXXXXXXXXXXXXXXXXX
-      'domain-name' => 'mailgun-domain-name'
+      'domain-name' => 'mailgun-domain-name',
       'from' => 'peter279k@gmail.com',
       'to' => 'peter279k@gmail.com',
       'subject' => 'Hello',

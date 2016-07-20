@@ -1,5 +1,6 @@
 <?php
-	require "vendor/autoload.php";
+	require "../../vendor/autoload.php";
+	require "./serviceBundle.php";
 	/*
 	*	Attention! The api key is just used to test.
 	* 	DO NOT USE these api keys for your application projects.
@@ -56,7 +57,7 @@
 				//e.g. key-98dXXXXXXX
 				'api-key' => 'key-98d4cb26f1e821ffc5ec0d3600d4ea29',
 				//e.g. sandbox5099cXXXXXXXXXXXXXXXXXXX
-				'domain-name' => 'sandbox5099c0f44ddb4ce0883b7ed9d2a87499.mailgun.org'
+				'domain-name' => 'sandbox5099c0f44ddb4ce0883b7ed9d2a87499.mailgun.org',
 				'from' => 'peter279k@gmail.com',
 				'to' => 'peter279k@gmail.com',
 				'subject' => 'Hello',
