@@ -1,5 +1,12 @@
 <?php
-	require "../../vendor/autoload.php";
+	$os = PHP_OS;
+	if($os != "WINNT")
+		require __DIR__ . "/vendor/autoload.php";
+	else {
+		chdir(__DIR__);
+		require "vendor/autoload.php";
+	}
+	
 	require "serviceBundle.php";
 	/*
 	*	Attention! The api key is just used to test.
