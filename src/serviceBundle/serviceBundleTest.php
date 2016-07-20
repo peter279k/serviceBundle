@@ -9,6 +9,13 @@
 	class serviceBundleTest extends PHPUnit_Framework_TestCase {
 		/** @test */
 		public function serviceTest() {
+			
+			$config = $this -> unknownService();
+			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$response = $bundle -> sendReq();
+			$expectRes = "unknown-service";
+			$this -> assertSame($expectRes, "unknown-service");
+			
 			$config = $this -> mailgunTest();
 			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
 			$response = $bundle -> sendReq();
@@ -16,6 +23,13 @@
 				"message" => "Queued. Thank you."
 			);
 			$this -> assertSame($expectRes["message"], $response["message"]);
+			
+			$config = $this -> imgurFileNot();
+			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$response = $bundle -> sendReq();
+			$expectRes = "file not found";
+			
+			$this -> assertSame($expectRes, $response);
 			
 			$config = $this -> imgurTest();
 			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
@@ -50,6 +64,12 @@
 			$this -> assertSame(0, (int)strpos($response["data"]["url"], $expectRes));
 		}
 		
+		public function unknownService() {
+			$config = array(
+				'service-name' => 'unknownService'
+			);
+		}
+		
 		public function mailgunTest() {
 			$config = array(
 				'service-name' => 'mailgun',
@@ -68,6 +88,16 @@
 		}
 		
 		public function imgurTest() {
+			$config = array(
+				'service-name' => 'imgur',
+				'clientID' => '3aa5c24753e1656',
+				'filePath' => './image.PNG'
+			);
+			
+			return $config;
+		}
+		
+		public function imgurFileNot() {
 			$config = array(
 				'service-name' => 'imgur',
 				'clientID' => '3aa5c24753e1656',
