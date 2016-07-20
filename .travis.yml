@@ -14,4 +14,4 @@ notifications:
     on_success: always
     on_failure: always
 
-script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-text
+script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-html
