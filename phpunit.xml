@@ -7,7 +7,7 @@
     <filter>
 		
 		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">./src/serviceBundle/test/</directory>
+			<directory suffix=".php">./src/serviceBundle/serviceBundleTest.php</directory>
 		</whitelist>
 	</filter>
 	
