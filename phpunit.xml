@@ -6,7 +6,7 @@
 	
     <filter>
 		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">./src/serviceBundle/serviceBundleTest.php</directory>
+			<directory suffix=".php">./serviceBundleTest.php</directory>
 		</whitelist>
 	</filter>
 </phpunit>

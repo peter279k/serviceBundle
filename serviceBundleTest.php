@@ -1,6 +1,6 @@
 <?php
-	require "../../vendor/autoload.php";
-	require "./serviceBundle.php";
+	require "vendor/autoload.php";
+	require "src/serviceBundle/serviceBundle.php";
 	/*
 	*	Attention! The api key is just used to test.
 	* 	DO NOT USE these api keys for your application projects.
