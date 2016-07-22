@@ -13,6 +13,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 | [mailjet](http://dev.mailjet.com/guides/?php#about-the-mailjet-restful-api) | No | mailing service |
 | [sendgrid](https://sendgrid.com/)    | No    | mailing service |
 | [Imgur](http://imgur.com/)       | Yes   | uploading images service |
+| [Imageshack](https://www.imageshack.us)       | Yes   | uploading images service |
 | [bit.ly](https://bitly.com/)      | Yes    | shorten url service |
 | [goo.gl](https://goo.gl/)      | Yes    | shorten url service |
 |[McAf.ee](https://community.mcafee.com/docs/DOC-1991)| Yes | shorten url service |

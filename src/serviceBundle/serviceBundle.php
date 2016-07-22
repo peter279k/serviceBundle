@@ -22,6 +22,9 @@
 				case "imgur":
 					return $this -> uploadImg();
 					break;
+				case "imageshack":
+					return $this -> uploadImageshack();
+					break;
 				case "bit.ly":
 				case "goo.gl":
 				case "McAf.ee":
@@ -58,6 +61,33 @@
 			return $res -> json();
 		}
 		
+		private function uploadImageshack() {
+			if(!file_exists($this -> configs["filePath"])) {
+				return "file not found";
+			}
+			else {
+				$imageFilePath = $this -> configs["filePath"];
+				
+				$post = array(
+					"fileupload" => new GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
+					"key" => $this -> configs["key"],
+					"format" => 'json',
+					"max_file_size" => $this -> configs["maxFileSize"],
+					"Content-type" => "multipart/form-data"
+				);
+				
+				$httpClient = new \GuzzleHttp\Client([]);
+				$httpClient -> setDefaultOption('verify', false);
+				
+				$res = $httpClient -> post('http://imageshack.us/upload_api.php', [
+					'body' => $post
+				]);
+				
+				return $res -> json();
+				
+			}
+		}
+		
 		private function uploadImg() {
 			if(!file_exists($this -> configs["filePath"]))
 				return "file not found";
@@ -75,7 +105,7 @@
 				$httpClient -> setDefaultOption('verify', false);
 
 				$res = $httpClient -> post('https://api.imgur.com/3/image.json', [
-					'body'=>[
+					'body' => [
 						'image' => base64_encode($imageFile)
 					]
 				]);

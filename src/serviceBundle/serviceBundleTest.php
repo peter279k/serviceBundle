@@ -42,6 +42,20 @@
 			$this -> assertSame($expectRes["success"], $response["success"]);
 			$this -> assertSame($expectRes["status"], $response["status"]);
 			
+			$config = $this -> imageShackFileNot();
+			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$response = $bundle -> sendReq();
+			$expectRes = "file not found";
+			
+			$this -> assertSame($expectRes, $response);
+			
+			$config = $this -> imageShackTest();
+			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$response = $bundle -> sendReq();
+			$expectRes = "http://imagizer.imageshack.com";
+			
+			$this -> assertSame(0, (int)strpos($response['links']['image_link'], $expectRes));
+			
 			$config = $this -> bitlyTest();
 			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
 			$response = $bundle -> sendReq();
@@ -62,6 +76,17 @@
 			$expectRes = "http://mcaf.ee/";
 			
 			$this -> assertSame(0, (int)strpos($response["data"]["url"], $expectRes));
+		}
+		
+		public function imageShackFileNot() {
+			$config = array(
+				'service-name' => 'imageshack',
+				'key' => '0156DGOW6788c018fc5882549c147ce6de6db0e7',
+				'maxFileSize' => '5242880'
+				'filePath' => './image.png'
+			);
+			
+			return $config;
 		}
 		
 		public function unknownService() {
