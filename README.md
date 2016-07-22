@@ -1,6 +1,9 @@
 # serviceBundle 
 [![Build Status](https://travis-ci.org/peter279k/serviceBundle.svg?branch=v1.2.8)](https://travis-ci.org/peter279k/serviceBundle) [![Latest Stable Version](https://poser.pugx.org/lee/service-bundle/version)](https://packagist.org/packages/lee/service-bundle) [![Total Downloads](https://poser.pugx.org/lee/service-bundle/downloads)](https://packagist.org/packages/lee/service-bundle) [![Latest Unstable Version](https://poser.pugx.org/lee/service-bundle/v/unstable)](https://packagist.org/packages/lee/service-bundle) [![License](https://poser.pugx.org/lee/service-bundle/license)](https://packagist.org/packages/lee/service-bundle) [![codecov](https://codecov.io/gh/peter279k/serviceBundle/branch/master/graph/badge.svg)](https://codecov.io/gh/peter279k/serviceBundle)
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/f29371ba-ab1c-4203-84d3-7c903e919824/big.png)](https://insight.sensiolabs.com/projects/f29371ba-ab1c-4203-84d3-7c903e919824)
+
+
 Integrating with mailing service,uploading image service and so on.
 
 It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
