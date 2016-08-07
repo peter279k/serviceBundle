@@ -1,13 +1,5 @@
 <?php
 	namespace peter\components\serviceBundle;
-	/*
-	$config = array(
-		"service-name" => "bit.ly"(by default),
-		"url" => "your-url",
-		"api-key" => "your-api-key",
-		"api-secret" => "your-api-secret"(optional)
-	);
-	*/
 
 	class serviceBundle {
 		public function __construct(array $config) {
