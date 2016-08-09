@@ -61,7 +61,7 @@
 				$imageFilePath = $this -> configs["filePath"];
 				
 				$post = array(
-					"fileupload" => new GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
+					"fileupload" => new \GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
 					"key" => $this -> configs["key"],
 					"format" => 'json',
 					"max_file_size" => $this -> configs["maxFileSize"],
