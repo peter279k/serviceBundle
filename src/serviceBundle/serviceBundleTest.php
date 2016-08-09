@@ -89,6 +89,28 @@
 			return $config;
 		}
 		
+		public function imageShackTest() {
+			$path = __DIR__;
+			$os = PHP_OS;
+			
+			if($os == "WINNT") {
+				$path = str_replace('\\', "\\\\", $path);
+				$path .= "\\image.PNG";
+			}
+			else {
+				$path .= "/image.PNG";
+			}
+			
+			$config = array(
+				'service-name' => 'imageshack',
+				'key' => '0156DGOW6788c018fc5882549c147ce6de6db0e7',
+				'maxFileSize' => '5242880'
+				'filePath' => $path
+			);
+			
+			return $config;
+		}
+		
 		public function unknownService() {
 			$config = array(
 				'service-name' => 'unknownService'
