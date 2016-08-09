@@ -74,7 +74,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   $config = array(
 		'service-name' => 'imageshack',
 		'key' => 'your-Imageshack-api-key',
-		//the image max file size
+		//specify the image max file size
 		'maxFileSize' => '5242880'
 		'filePath' => '/path/to/image.png'
   );
