@@ -104,7 +104,7 @@
 			$config = array(
 				'service-name' => 'imageshack',
 				'key' => '0156DGOW6788c018fc5882549c147ce6de6db0e7',
-				'maxFileSize' => '5242880'
+				'maxFileSize' => '5242880',
 				'filePath' => $path
 			);
 			
