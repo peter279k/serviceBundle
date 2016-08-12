@@ -3,8 +3,7 @@
     "description": "Intergated with mailing service,uploading image service and so on.",
     "type": "api",
     "require": {
-        "guzzlehttp/guzzle": "^5.3",
-        "ramsey/uuid": "^3.4"
+        "guzzlehttp/guzzle": "^5.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
