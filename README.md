@@ -130,3 +130,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 ####2016/07/21
 + version: v1.2.9
 + adding some information images
+
+####2016/07/21
++ version: v1.3.1
++ supporting the Imageshack API
