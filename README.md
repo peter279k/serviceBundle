@@ -119,6 +119,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   var_dump($bundle -> sendReq());
   ```
 ###Changelog
+
 ####2016/07/20
 + version: v1.2.7
 + Using the new version of Guzzle 5 and avoid the Httpoxy vulnerability.
@@ -134,6 +135,11 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 ####2016/07/21
 + version: v1.3.1
 + supporting the Imageshack API
+
+####2016/08/13
++ version: v2.0.0
++ create the guzzle6 branch
++ replace guzzle6 with guzzle5
 
 ## Version Guidance
 
