@@ -3,7 +3,7 @@
     "description": "Intergated with mailing service,uploading image service and so on.",
     "type": "api",
     "require": {
-        "guzzlehttp/guzzle": "^5.3"
+        "guzzlehttp/guzzle": "^6.2"
     },
     "license": "MIT",
      "autoload": {

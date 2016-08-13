@@ -1,7 +1,7 @@
 <?php
-	namespace peter\components\serviceBundle;
+	namespace peter\components;
 
-	class serviceBundle {
+	class ServiceBundle {
 		public function __construct(array $config) {
 			$this -> configs = $config;
 		}
@@ -38,11 +38,11 @@
 				];
 			}
 			
-			$httpClient = new \GuzzleHttp\Client($httpConfig);
-			$httpClient -> setDefaultOption('verify', false);
+			$httpClient = new \GuzzleHttp\Client();
 
 			$res = $httpClient -> post('https://api.mailgun.net/v3/' . $this -> configs["domain-name"] . '.mailgun.org/messages', [
-				'body'=>[
+				'verify' => false,
+				'form_params'=>[
 					'from' => $this -> configs["from"],
 					'to' => $this -> configs["to"],
 					'subject' => $this -> configs["subject"],
@@ -50,7 +50,7 @@
 				]
 			]);
 	
-			return $res -> json();
+			return $res -> getBody();
 		}
 		
 		private function uploadImageshack() {
@@ -68,14 +68,14 @@
 					"Content-type" => "multipart/form-data"
 				);
 				
-				$httpClient = new \GuzzleHttp\Client([]);
-				$httpClient -> setDefaultOption('verify', false);
+				$httpClient = new \GuzzleHttp\Client();
 				
 				$res = $httpClient -> post('http://imageshack.us/upload_api.php', [
-					'body' => $post
+					'verify' => false,
+					'form_params' => $post
 				]);
 				
-				return $res -> json();
+				return $res -> getBody();
 				
 			}
 		}
@@ -93,16 +93,16 @@
 					];
 				}
 
-				$httpClient = new \GuzzleHttp\Client($httpConfig);
-				$httpClient -> setDefaultOption('verify', false);
+				$httpClient = new \GuzzleHttp\Client();
 
 				$res = $httpClient -> post('https://api.imgur.com/3/image.json', [
-					'body' => [
+					'verify' => false,
+					'form_params' => [
 						'image' => base64_encode($imageFile)
 					]
 				]);
 	
-				return $res -> json();
+				return $res -> getBody();
 			}
 		}
 		
@@ -128,7 +128,8 @@
 				]);
 
 				$res = $client -> post($apiURL, [
-					'json'=>['longUrl' => $this -> configs["longUrl"]]
+					'verify' => false,
+					'json' => ['longUrl' => $this -> configs["longUrl"]]
 				]);
 			}
 			

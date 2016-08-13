@@ -6,75 +6,106 @@
 	*
 	*/
 	
-	class serviceBundleTest extends PHPUnit_Framework_TestCase {
+	class ServiceBundleTest extends PHPUnit_Framework_TestCase {
 		/** @test */
 		public function serviceTest() {
 			
+			$this -> doUnknown();
+			
+			$this -> doMailgun();
+			
+			$this -> doImgurFile();
+			
+			$this -> doImgur();
+			
+			$this -> doImageShackFile();
+			
+			$this -> doImageShack();
+			
+			$this -> doBitLy();
+			
+			$this -> doGoogle();
+			
+			$this -> doMcafee();
+		}
+		
+		public function doUnknown() {
 			$config = $this -> unknownService();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "unknown-service";
 			$this -> assertSame($expectRes, "unknown-service");
-			
+		}
+		
+		public function doMailgun() {
 			$config = $this -> mailgunTest();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = array(
 				"message" => "Queued. Thank you."
 			);
 			$this -> assertSame($expectRes["message"], $response["message"]);
-			
+		}
+		
+		public function doImgurFile() {
 			$config = $this -> imgurFileNot();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "file not found";
-			
 			$this -> assertSame($expectRes, $response);
-			
+		}
+		
+		public function doImgur() {
 			$config = $this -> imgurTest();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = array(
 				"success" => true,
 				"status" => 200
 			);
-			
 			$this -> assertSame($expectRes["success"], $response["success"]);
 			$this -> assertSame($expectRes["status"], $response["status"]);
-			
+		}
+		
+		public function  doImageShackFile() {
 			$config = $this -> imageShackFileNot();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "file not found";
 			
 			$this -> assertSame($expectRes, $response);
-			
+		}
+		
+		public function doImageShack() {
 			$config = $this -> imageShackTest();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "http://imagizer.imageshack.com";
 			
 			$this -> assertSame(0, (int)strpos($response['links']['image_link'], $expectRes));
-			
+		}
+		
+		public function doBitLy() {
 			$config = $this -> bitlyTest();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "http://bit.ly/";
-			
 			$this -> assertSame(0, (int)strpos($response["data"]["url"], $expectRes));
-			
+		}
+		
+		public function doGoogle() {
 			$config = $this -> googlTest();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "http://goo.gl/";
-			
 			$this -> assertSame(0, (int)strpos($response["id"], $expectRes));
-			
+		}
+		
+		public function doMcafee() {
 			$config = $this -> mcafeeTest();
-			$bundle = new \peter\components\serviceBundle\serviceBundle($config);
+			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
-			$expectRes = "http://mcaf.ee/";
-			
+			$expectRes = "http://mcaf.ee/";	
 			$this -> assertSame(0, (int)strpos($response["data"]["url"], $expectRes));
 		}
 		
