@@ -14,6 +14,6 @@ notifications:
     on_success: always
     on_failure: always
 
-script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-html --coverage-clover=coverage.xml
+script: phpunit src/ServiceBundle/ServiceBundleTest.php --coverage-html --coverage-clover=coverage.xml
 
 after_success: bash <(curl -s https://codecov.io/bash)
