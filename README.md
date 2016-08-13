@@ -134,3 +134,13 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 ####2016/07/21
 + version: v1.3.1
 + supporting the Imageshack API
+
+## Version Guidance
+
+| Version | Status      | Packagist           | Namespace    | PSR-7 |
+|---------|-------------|---------------------|--------------|-------|
+| 1.x     | Maintained  | `lee/service-bundle` | `peter\components\serviceBundle\serviceBundle` | No    |
+| 2.x     | Latest      | `lee/service-bundle` | `peter\components\ServiceBundle` | No    |
+
+[serviceBundle-1-repo]: https://github.com/peter279k/serviceBundle/tree/master
+[serviceB-2-repo]: https://github.com/peter279k/serviceBundle/tree/guzzle6
