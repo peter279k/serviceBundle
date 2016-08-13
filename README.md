@@ -50,7 +50,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       //contents supported only plain text now.
       'contents' => 'Mailgun is awesome !'
   );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  $bundle = new \peter\components\ServiceBundle($config);
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -62,7 +62,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'clientID' => 'imgur-client-id',
 		'filePath' => '/path/to/image.png'
   );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  $bundle = new \peter\components\ServiceBundle($config);
   //return json format (Imgur standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -77,7 +77,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'maxFileSize' => '5242880'
 		'filePath' => '/path/to/image.png'
   );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  $bundle = new \peter\components\ServiceBundle($config);
   //return json format (Imgur standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -89,7 +89,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'service-name' => 'McAf.ee',
 		'longUrl' => 'your-long-url'
   );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  $bundle = new \peter\components\ServiceBundle($config);
   //return json format (McAf standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -101,7 +101,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
   );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  $bundle = new \peter\components\ServiceBundle($config);
   //return json format (goo.gl standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -114,7 +114,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
   );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  $bundle = new \peter\components\ServiceBundle($config);
   //return json format (bit.ly standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -134,3 +134,13 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 ####2016/07/21
 + version: v1.3.1
 + supporting the Imageshack API
+
+## Version Guidance
+
+| Version | Status      | Packagist           | Namespace    | PSR-7 |
+|---------|-------------|---------------------|--------------|-------|
+| 1.x     | Maintained  | `lee/service-bundle` | `peter\components\serviceBundle\serviceBundle` | No    |
+| 2.x     | Latest      | `lee/service-bundle` | `peter\components\ServiceBundle` | No    |
+
+[serviceBundle-1-repo]: https://github.com/peter279k/serviceBundle/tree/master
+[serviceB-2-repo]: https://github.com/peter279k/serviceBundle/tree/guzzle6

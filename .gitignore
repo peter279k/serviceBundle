@@ -1,3 +1,5 @@
 *.phar
 vendor
+report
+clover.xml
 

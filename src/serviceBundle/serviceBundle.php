@@ -29,28 +29,21 @@
 		
 		private function sendMail() {
 			$res = null;
-			$httpConfig = [];
-
-			if($this -> configs["service-name"] === "mailgun") {
-				$httpConfig = ['defaults' => [
-						'auth' => ['api', $this -> configs["api-key"]]
-					]
-				];
-			}
 			
 			$httpClient = new \GuzzleHttp\Client();
 
-			$res = $httpClient -> post('https://api.mailgun.net/v3/' . $this -> configs["domain-name"] . '.mailgun.org/messages', [
+			$res = $httpClient -> request("POST", 'https://api.mailgun.net/v3/' . $this -> configs["domain-name"] . '.mailgun.org/messages', [
 				'verify' => false,
 				'form_params'=>[
 					'from' => $this -> configs["from"],
 					'to' => $this -> configs["to"],
 					'subject' => $this -> configs["subject"],
 					'text' => $this -> configs["contents"]
-				]
+				],
+				'auth' => ['api', $this -> configs["api-key"]]
 			]);
 	
-			return $res -> getBody();
+			return json_decode($res -> getBody(), true);
 		}
 		
 		private function uploadImageshack() {
@@ -61,7 +54,7 @@
 				$imageFilePath = $this -> configs["filePath"];
 				
 				$post = array(
-					"fileupload" => new \GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
+					"fileupload" => fopen($imageFilePath, 'r'),
 					"key" => $this -> configs["key"],
 					"format" => 'json',
 					"max_file_size" => $this -> configs["maxFileSize"],
@@ -75,7 +68,7 @@
 					'form_params' => $post
 				]);
 				
-				return $res -> getBody();
+				return json_decode($res -> getBody(), true);
 				
 			}
 		}
@@ -85,24 +78,18 @@
 				return "file not found";
 			else {
 				$imageFile = file_get_contents($this -> configs["filePath"]);
-				
-				if($this -> configs["service-name"] === "imgur") {
-					$httpConfig = ['defaults' => [
-							'headers' => ['Authorization' => 'Client-ID ' . $this -> configs["clientID"]]
-						]
-					];
-				}
 
 				$httpClient = new \GuzzleHttp\Client();
 
-				$res = $httpClient -> post('https://api.imgur.com/3/image.json', [
+				$res = $httpClient -> request("POST", 'https://api.imgur.com/3/image.json', [
 					'verify' => false,
 					'form_params' => [
 						'image' => base64_encode($imageFile)
-					]
+					],
+					'headers' => ['Authorization' => 'Client-ID ' . $this -> configs["clientID"]]
 				]);
 	
-				return $res -> getBody();
+				return json_decode($res -> getBody(), true);
 			}
 		}
 		
@@ -133,7 +120,7 @@
 				]);
 			}
 			
-			return $res -> json();
+			return json_decode($res -> getBody(), true);
 		}
 	}
 ?>
