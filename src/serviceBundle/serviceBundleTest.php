@@ -32,7 +32,6 @@
 		public function doUnknown() {
 			$config = $this -> unknownService();
 			$bundle = new \peter\components\ServiceBundle($config);
-			$response = $bundle -> sendReq();
 			$expectRes = "unknown-service";
 			$this -> assertSame($expectRes, "unknown-service");
 		}
