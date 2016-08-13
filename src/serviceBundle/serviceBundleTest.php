@@ -34,7 +34,7 @@
 			$bundle = new \peter\components\ServiceBundle($config);
 			$response = $bundle -> sendReq();
 			$expectRes = "unknown-service";
-			$this -> assertSame($expectRes, "unknown-service");
+			$this -> assertSame($expectRes, $response);
 		}
 		
 		public function doMailgun() {
