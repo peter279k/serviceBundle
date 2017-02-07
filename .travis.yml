@@ -16,4 +16,9 @@ notifications:
 
 script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-html --coverage-clover=coverage.xml
 
-after_success: bash <(curl -s https://codecov.io/bash)
+after_success:
+  # Scrutinizer
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.xml
+  # CodeCov
+  - bash <(curl -s https://codecov.io/bash)
