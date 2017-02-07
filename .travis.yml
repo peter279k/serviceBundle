@@ -14,7 +14,7 @@ notifications:
     on_success: always
     on_failure: always
 
-script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-html --coverage-clover=coverage.xml
+script: phpunit src/serviceBundle/serviceBundleTest.php --coverage-text --coverage-clover=coverage.xml
 
 after_success:
   # Scrutinizer
