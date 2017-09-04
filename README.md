@@ -22,7 +22,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 |[McAf.ee](https://community.mcafee.com/docs/DOC-1991)| Yes | shorten url service |
 
 ## Usage
-###Install Package
+### Install Package
   
   We strongly recommended using [composer](https://getcomposer.org)
   
@@ -118,20 +118,20 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   //return json format (bit.ly standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
-###Changelog
-####2016/07/20
+### Changelog
+#### 2016/07/20
 + version: v1.2.7
 + Using the new version of Guzzle 5 and avoid the Httpoxy vulnerability.
 
-####2016/07/21
+#### 2016/07/21
 + version: v1.2.8
 + Fix the uploading image via imgur service bug.
 
-####2016/07/21
+#### 2016/07/21
 + version: v1.2.9
 + adding some information images
 
-####2016/07/21
+#### 2016/07/21
 + version: v1.3.1
 + supporting the Imageshack API
 
