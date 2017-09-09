@@ -11,23 +11,23 @@ class serviceBundle
 
     public function sendReq()
     {
-        switch ($this->configs["service-name"]) {
-                case "mailgun":
+        switch ($this->configs['service-name']) {
+                case 'mailgun':
                     return $this->sendMail();
                     break;
-                case "imgur":
+                case 'imgur':
                     return $this->uploadImg();
                     break;
-                case "imageshack":
+                case 'imageshack':
                     return $this->uploadImageshack();
                     break;
-                case "bit.ly":
-                case "goo.gl":
-                case "McAf.ee":
+                case 'bit.ly':
+                case 'goo.gl':
+                case 'McAf.ee':
                     return $this->generateUrl();
                     break;
                 default:
-                    return "unknown-service";
+                    return 'unknown-service';
             }
     }
 
@@ -36,23 +36,23 @@ class serviceBundle
         $res = null;
         $httpConfig = [];
 
-        if ($this->configs["service-name"] === "mailgun") {
+        if ($this->configs['service-name'] === 'mailgun') {
             $httpConfig = ['defaults' => [
-                        'auth' => ['api', $this->configs["api-key"]]
-                    ]
+                        'auth' => ['api', $this->configs['api-key']],
+                    ],
                 ];
         }
 
         $httpClient = new \GuzzleHttp\Client($httpConfig);
         $httpClient->setDefaultOption('verify', false);
 
-        $res = $httpClient->post('https://api.mailgun.net/v3/' . $this->configs["domain-name"] . '.mailgun.org/messages', [
-                'body'=>[
-                    'from' => $this->configs["from"],
-                    'to' => $this->configs["to"],
-                    'subject' => $this->configs["subject"],
-                    'text' => $this->configs["contents"]
-                ]
+        $res = $httpClient->post('https://api.mailgun.net/v3/'.$this->configs['domain-name'].'.mailgun.org/messages', [
+                'body' => [
+                    'from' => $this->configs['from'],
+                    'to' => $this->configs['to'],
+                    'subject' => $this->configs['subject'],
+                    'text' => $this->configs['contents'],
+                ],
             ]);
 
         return $res->json();
@@ -60,24 +60,24 @@ class serviceBundle
 
     private function uploadImageshack()
     {
-        if (!file_exists($this->configs["filePath"])) {
-            return "file not found";
+        if (!file_exists($this->configs['filePath'])) {
+            return 'file not found';
         } else {
-            $imageFilePath = $this->configs["filePath"];
+            $imageFilePath = $this->configs['filePath'];
 
-            $post = array(
-                    "fileupload" => new \GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
-                    "key" => $this->configs["key"],
-                    "format" => 'json',
-                    "max_file_size" => $this->configs["maxFileSize"],
-                    "Content-type" => "multipart/form-data"
-                );
+            $post = [
+                    'fileupload' => new \GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
+                    'key' => $this->configs['key'],
+                    'format' => 'json',
+                    'max_file_size' => $this->configs['maxFileSize'],
+                    'Content-type' => 'multipart/form-data',
+                ];
 
             $httpClient = new \GuzzleHttp\Client([]);
             $httpClient->setDefaultOption('verify', false);
 
             $res = $httpClient->post('http://imageshack.us/upload_api.php', [
-                    'body' => $post
+                    'body' => $post,
                 ]);
 
             return $res->json();
@@ -86,15 +86,15 @@ class serviceBundle
 
     private function uploadImg()
     {
-        if (!file_exists($this->configs["filePath"])) {
-            return "file not found";
+        if (!file_exists($this->configs['filePath'])) {
+            return 'file not found';
         } else {
-            $imageFile = file_get_contents($this->configs["filePath"]);
+            $imageFile = file_get_contents($this->configs['filePath']);
 
-            if ($this->configs["service-name"] === "imgur") {
+            if ($this->configs['service-name'] === 'imgur') {
                 $httpConfig = ['defaults' => [
-                            'headers' => ['Authorization' => 'Client-ID ' . $this->configs["clientID"]]
-                        ]
+                            'headers' => ['Authorization' => 'Client-ID '.$this->configs['clientID']],
+                        ],
                     ];
             }
 
@@ -103,8 +103,8 @@ class serviceBundle
 
             $res = $httpClient->post('https://api.imgur.com/3/image.json', [
                     'body' => [
-                        'image' => base64_encode($imageFile)
-                    ]
+                        'image' => base64_encode($imageFile),
+                    ],
                 ]);
 
             return $res->json();
@@ -113,26 +113,26 @@ class serviceBundle
 
     private function generateUrl()
     {
-        if ($this->configs["service-name"] === "McAf.ee") {
-            $apiURL = "http://mcaf.ee/api/shorten?input_url=" . $this->configs["longUrl"];
+        if ($this->configs['service-name'] === 'McAf.ee') {
+            $apiURL = 'http://mcaf.ee/api/shorten?input_url='.$this->configs['longUrl'];
             $client = new \GuzzleHttp\Client();
             $res = $client->get($apiURL);
-        } elseif ($this->configs["service-name"] === "bit.ly") {
-            $apiURL = 'http://api.bit.ly/v3/shorten?login=' . $this->configs["login"] . '&apiKey=' . $this->configs['apiKey'] . '&uri='.urlencode($this->configs["longUrl"]);
+        } elseif ($this->configs['service-name'] === 'bit.ly') {
+            $apiURL = 'http://api.bit.ly/v3/shorten?login='.$this->configs['login'].'&apiKey='.$this->configs['apiKey'].'&uri='.urlencode($this->configs['longUrl']);
             $client = new \GuzzleHttp\Client();
             $res = $client->get($apiURL);
         } else {
             //default: goo.gl
-            $apiURL = 'https://www.googleapis.com/urlshortener/v1/url?key=' . $this->configs["apiKey"];
+            $apiURL = 'https://www.googleapis.com/urlshortener/v1/url?key='.$this->configs['apiKey'];
 
             $client = new \GuzzleHttp\Client([
                     'defaults' => [
-                        'headers' => ['Content-Type', 'application/json']
-                    ]
+                        'headers' => ['Content-Type', 'application/json'],
+                    ],
                 ]);
 
             $res = $client->post($apiURL, [
-                    'json'=>['longUrl' => $this->configs["longUrl"]]
+                    'json' => ['longUrl' => $this->configs['longUrl']],
                 ]);
         }
 
