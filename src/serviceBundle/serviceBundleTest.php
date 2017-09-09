@@ -3,6 +3,8 @@
 use PHPUnit\Framework\TestCase;
 
 require 'serviceBundle.php';
+use peter\components\serviceBundle\ServiceBundle;
+
 /*
 *	Attention! The api key is just used to test.
 * 	DO NOT USE these api keys for your application projects.
@@ -15,13 +17,13 @@ class serviceBundleTest extends TestCase
     public function serviceTest()
     {
         $config = $this->unknownService();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'unknown-service';
         $this->assertSame($expectRes, 'unknown-service');
 
         $config = $this->mailgunTest();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = [
             'message' => 'Queued. Thank you.',
@@ -29,14 +31,14 @@ class serviceBundleTest extends TestCase
         $this->assertSame($expectRes['message'], $response['message']);
 
         $config = $this->imgurFileNot();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'file not found';
 
         $this->assertSame($expectRes, $response);
 
         $config = $this->imgurTest();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = [
             'success' => true,
@@ -47,35 +49,35 @@ class serviceBundleTest extends TestCase
         $this->assertSame($expectRes['status'], $response['status']);
 
         $config = $this->imageShackFileNot();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'file not found';
 
         $this->assertSame($expectRes, $response);
 
         $config = $this->imageShackTest();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'http://imagizer.imageshack.com';
 
         $this->assertSame(0, (int) strpos($response['links']['image_link'], $expectRes));
 
         $config = $this->bitlyTest();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'http://bit.ly/';
 
         $this->assertSame(0, (int) strpos($response['data']['url'], $expectRes));
 
         $config = $this->googlTest();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'http://goo.gl/';
 
         $this->assertSame(0, (int) strpos($response['id'], $expectRes));
 
         $config = $this->mcafeeTest();
-        $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+        $bundle = new ServiceBundle($config);
         $response = $bundle->sendReq();
         $expectRes = 'http://mcaf.ee/';
 

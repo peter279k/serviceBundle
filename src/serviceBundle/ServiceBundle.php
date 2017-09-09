@@ -2,7 +2,7 @@
 
 namespace peter\components\serviceBundle;
 
-class serviceBundle
+class ServiceBundle
 {
     public function __construct(array $config)
     {
