@@ -62,53 +62,51 @@ class serviceBundle
     {
         if (!file_exists($this->configs['filePath'])) {
             return 'file not found';
-        } else {
-            $imageFilePath = $this->configs['filePath'];
-
-            $post = [
-                    'fileupload' => new \GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
-                    'key' => $this->configs['key'],
-                    'format' => 'json',
-                    'max_file_size' => $this->configs['maxFileSize'],
-                    'Content-type' => 'multipart/form-data',
-                ];
-
-            $httpClient = new \GuzzleHttp\Client([]);
-            $httpClient->setDefaultOption('verify', false);
-
-            $res = $httpClient->post('http://imageshack.us/upload_api.php', [
-                    'body' => $post,
-                ]);
-
-            return $res->json();
         }
+        $imageFilePath = $this->configs['filePath'];
+
+        $post = [
+                'fileupload' => new \GuzzleHttp\Post\PostFile('fileupload', fopen($imageFilePath, 'r')),
+                'key' => $this->configs['key'],
+                'format' => 'json',
+                'max_file_size' => $this->configs['maxFileSize'],
+                'Content-type' => 'multipart/form-data',
+            ];
+
+        $httpClient = new \GuzzleHttp\Client([]);
+        $httpClient->setDefaultOption('verify', false);
+
+        $res = $httpClient->post('http://imageshack.us/upload_api.php', [
+                'body' => $post,
+            ]);
+
+        return $res->json();
     }
 
     private function uploadImg()
     {
         if (!file_exists($this->configs['filePath'])) {
             return 'file not found';
-        } else {
-            $imageFile = file_get_contents($this->configs['filePath']);
-
-            if ($this->configs['service-name'] === 'imgur') {
-                $httpConfig = ['defaults' => [
-                            'headers' => ['Authorization' => 'Client-ID '.$this->configs['clientID']],
-                        ],
-                    ];
-            }
-
-            $httpClient = new \GuzzleHttp\Client($httpConfig);
-            $httpClient->setDefaultOption('verify', false);
-
-            $res = $httpClient->post('https://api.imgur.com/3/image.json', [
-                    'body' => [
-                        'image' => base64_encode($imageFile),
-                    ],
-                ]);
-
-            return $res->json();
         }
+        $imageFile = file_get_contents($this->configs['filePath']);
+
+        if ($this->configs['service-name'] === 'imgur') {
+            $httpConfig = ['defaults' => [
+                        'headers' => ['Authorization' => 'Client-ID '.$this->configs['clientID']],
+                    ],
+                ];
+        }
+
+        $httpClient = new \GuzzleHttp\Client($httpConfig);
+        $httpClient->setDefaultOption('verify', false);
+
+        $res = $httpClient->post('https://api.imgur.com/3/image.json', [
+                'body' => [
+                    'image' => base64_encode($imageFile),
+                ],
+            ]);
+
+        return $res->json();
     }
 
     private function generateUrl()
