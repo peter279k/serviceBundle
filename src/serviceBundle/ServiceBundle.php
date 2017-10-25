@@ -2,6 +2,8 @@
 
 namespace peter\components\serviceBundle;
 
+require 'vendor/autoload.php';
+
 class ServiceBundle
 {
     public function __construct(array $config)
@@ -25,6 +27,9 @@ class ServiceBundle
                 case 'goo.gl':
                 case 'McAf.ee':
                     return $this->generateUrl();
+                    break;
+                case 'sendgrid':
+                    return $this->sendSendGridEmail();
                     break;
                 default:
                     return 'unknown-service';
@@ -136,4 +141,22 @@ class ServiceBundle
 
         return $res->json();
     }
+
+    public function sendSendGridEmail()
+    {
+        $from = new \SendGrid\Email($this->configs['from-name'], $this->configs['from-email']);
+        $to = new \SendGrid\Email($this->configs['to-name'], $this->configs['to-email']);
+        $content = new \SendGrid\Content("text/plain", $this->configs['contents']);
+        $mail = new \SendGrid\Mail($from, $this->configs['subject'], $to, $content);
+        $sg = new \SendGrid($this->configs['api-key']);
+
+        if ($this->configs['sandbox-mode']) {
+            $sg->client->mail_settings()->setSandboxMode(true);
+        }
+
+        $response = $sg->client->mail()->send()->post($mail);
+
+        return $response;
+    }
+
 }
