@@ -209,25 +209,4 @@ class serviceBundleTest extends TestCase
 
         return $config;
     }
-
-    /** @test */
-    public function sendGridTest()
-    {
-        $config = [
-            'service-name' => 'sendgrid',
-            'api-key' => getenv('SENDGRID_API_KEY'),
-            'from-name' => getenv('TEST_USER_FROM_NAME'),
-            'from-email' => getenv('TEST_USER_FROM_EMAIL'),
-            'to-name' => getenv('TEST_USER_TO_NAME'),
-            'to-email' => getenv('TEST_USER_TO_EMAIL'),
-            'subject' => 'SendGrid Test',
-            'contents' => 'Sendgrid is awesome!',
-            'sandbox-mode' => true
-        ];
-
-        $bundle = new ServiceBundle($config);
-        $response = $bundle->sendReq();
-
-        $this->assertSame($response->statusCode(), 202);
-    }
 }
