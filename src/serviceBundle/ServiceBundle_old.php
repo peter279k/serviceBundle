@@ -1,6 +1,19 @@
 <?php 
 
 namespace peter\components\serviceBundle;
+
+// class ServiceBundleFactory
+// {
+//     public function create($service) 
+//     {
+//         if(class_exists($service)) {
+//             return new $service();
+//         }
+//     }
+// }
+
+
+
 class ServiceBundle
 {
     public function __construct(array $config)
