@@ -1,8 +1,8 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace peter\components\serviceBundle\Test;
 
-require 'ServiceBundle.php';
+use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceBundle;
 
 /*

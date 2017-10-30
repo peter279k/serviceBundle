@@ -1,16 +1,13 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use peter\components\serviceBundle\ServiceBundle;
+use peter\components\serviceBundle\ServiceBundle\Mailgun;
 
-/**
-* 
-*/
-class ClassName extends TestCase
+class MailgunTest extends TestCase
 {
-    
-    function __construct(argument)
+    /** @test */
+    public function testIsTypeOfMailgun()
     {
-        # code...
+        $mailgunService = ServiceFactory::create('mailgun');
     }
 }
