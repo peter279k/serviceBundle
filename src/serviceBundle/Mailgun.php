@@ -4,6 +4,13 @@ namespace peter\components\serviceBundle;
 
 class Mailgun implements Service
 {
+    private $configs;
+
+    public function setConfigs($configs)
+    {
+        $this->configs = $configs;
+    }
+
     public function sendReq()
     {
         $res = null;
@@ -12,11 +19,11 @@ class Mailgun implements Service
                     'api', $this->configs['api-key']
                 ]
             ]
-        ];=
+        ];
 
         $httpClient = new \GuzzleHttp\Client($httpConfig);
         $httpClient->setDefaultOption('verify', false);
-        $res = $httpClient->post('https://api.mailgun.net/v3/'.$this->configs['domain-name'].'.mailgun.org/messages', [
+        $res = $httpClient->post('https://api.mailgun.net/v3/'.$this->configs['domain-name'].'/messages', [
                 'body' => [
                     'from' => $this->configs['from'],
                     'to' => $this->configs['to'],
