@@ -8,6 +8,6 @@ class Bitly implements Service
     {
         $url = 'http://api.bit.ly/v3/shorten?login=' . $this->configs['login'] . '&apiKey=' . $this->configs['apiKey'] . '&uri=' . urlencode($this->configs['longUrl']);
         $client = new \GuzzleHttp\Client();
-        $res = $client->get($url);
+        return $client->get($url)->json();
     }
 }

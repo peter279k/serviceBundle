@@ -7,7 +7,7 @@
     charset="UTF-8">
     <testsuites>
       <testsuite name="serviceBundle Test Suite">
-        <directory>tests</directory>
+        <directory suffix="Test.php">./tests/serviceBundle</directory>
       </testsuite>
     </testsuites>
     <filter>

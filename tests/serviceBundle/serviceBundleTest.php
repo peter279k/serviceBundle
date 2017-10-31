@@ -11,10 +11,9 @@ use peter\components\serviceBundle\ServiceBundle;
 *
 */
 
-class serviceBundleTest extends TestCase
+class ServiceBundleTest extends TestCase
 {
-    /** @test */
-    public function serviceTest()
+    public function allServices()
     {
         $config = $this->unknownService();
         $bundle = new ServiceBundle($config);
