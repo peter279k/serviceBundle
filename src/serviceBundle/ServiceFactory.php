@@ -12,6 +12,9 @@ class ServiceFactory
                 case 'mailgun':
                     return new Mailgun();
                     break;
+                case 'imgur':
+                    return new Imgur();
+                    break;
                 default:
                     throw new \Exception('Service does not exist.');
         }

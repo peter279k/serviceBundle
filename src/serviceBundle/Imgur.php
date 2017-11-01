@@ -4,10 +4,17 @@ namespace peter\components\serviceBundle;
 
 class Imgur implements Service
 {
+    private $configs;
+
+    public function setConfigs($configs)
+    {
+        $this->configs = $configs;
+    }
+    
     public function sendReq()
     {
         if (!file_exists($this->configs['filePath'])) {
-            throw new Exception('file not found');
+            throw new \Exception('file not found');
         }
 
         $imageFile = file_get_contents($this->configs['filePath']);
