@@ -6,6 +6,7 @@ use peter\components\serviceBundle\Services\Mailgun;
 use peter\components\serviceBundle\Services\Imgur;
 use peter\components\serviceBundle\Services\ImageShack;
 use peter\components\serviceBundle\Services\Bitly;
+use peter\components\serviceBundle\Services\McAfee;
 
 class ServiceFactory
 {
@@ -23,6 +24,9 @@ class ServiceFactory
                     break;
                 case 'bitly':
                     return new Bitly();
+                    break;
+                case 'mcafee':
+                    return new McAfee();
                     break;
                 default:
                     throw new \Exception('Service does not exist.');
