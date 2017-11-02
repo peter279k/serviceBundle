@@ -15,11 +15,12 @@ class Imgur implements Service
     
     public function sendReq()
     {
-        if (!file_exists($this->config['filePath'])) {
+        $filePath = $this->config['filePath'];
+        if (!file_exists($filePath)) {
             throw new \Exception('file not found');
         }
 
-        $imageFile = file_get_contents($this->config['filePath']);
+        $imageFile = file_get_contents($filePath);
         $httpConfig = ['defaults' => [
                     'headers' => ['Authorization' => 'Client-ID '.$this->config['clientID']],
                 ],

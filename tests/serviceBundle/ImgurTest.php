@@ -24,7 +24,6 @@ class ImgurTest extends TestCase
         }
 
         $config = [
-            'service-name' => 'imgur',
             'clientID' => '3aa5c24753e1656',
             'filePath' => './image123.png',
         ];
