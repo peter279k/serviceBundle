@@ -5,6 +5,7 @@ namespace peter\components\serviceBundle;
 use peter\components\serviceBundle\Services\Mailgun;
 use peter\components\serviceBundle\Services\Imgur;
 use peter\components\serviceBundle\Services\ImageShack;
+use peter\components\serviceBundle\Services\Bitly;
 
 class ServiceFactory
 {
@@ -19,6 +20,9 @@ class ServiceFactory
                     break;
                 case 'imageshack':
                     return new ImageShack();
+                    break;
+                case 'bitly':
+                    return new Bitly();
                     break;
                 default:
                     throw new \Exception('Service does not exist.');
