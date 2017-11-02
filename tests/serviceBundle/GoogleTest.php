@@ -11,6 +11,7 @@ class GoogleTest extends TestCase
         $googleService = (new ServiceFactory)->create('google');
         $this->assertInstanceOf(peter\components\serviceBundle\Services\Google::class, $googleService);
     }
+
     /** @test */
     public function canSendReq()
     {
@@ -25,5 +26,4 @@ class GoogleTest extends TestCase
 
         $this->assertSame(0, (int) strpos($response['id'], 'http://goo.gl/'));
     }
-
 }

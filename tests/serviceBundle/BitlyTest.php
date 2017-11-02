@@ -28,5 +28,4 @@ class BitlyTest extends TestCase
         $this->assertSame(200, $response['status_code']);
         $this->assertSame(0, (int) strpos($response['data']['url'], 'http://bit.ly/'));
     }
-
 }
