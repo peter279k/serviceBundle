@@ -33,11 +33,7 @@ class ServiceFactory
                     return new Google();
                     break;
                 default:
-                    throw new \Exception('Service does not exist.');
+                    throw new \Exception('Service does not exist');
         }
-        // if(class_exists($service)) {
-        //     return new $service();
-        // } 
-        // throw new \Exception('Service does not exist.');
     }
 }
