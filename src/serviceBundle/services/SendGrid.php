@@ -1,6 +1,6 @@
 <?php
 
-namespace peter\components\serviceBundle;
+namespace peter\components\serviceBundle\Services;
 
 class SendGrid implements serviceBundle
 {

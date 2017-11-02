@@ -1,11 +1,9 @@
 <?php
 
-namespace peter\components\serviceBundle;
+namespace peter\components\serviceBundle\Services;
 
 class ImageShack implements Service
 {
-    $name = 'imgur';
-
     public function sendReq()
     {
         $filePath = $this->configs['filePath'];
