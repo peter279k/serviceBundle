@@ -9,9 +9,9 @@ class ImgurTest extends TestCase
     public function isTypeOfImgur()
     {
         $imgurService = (new ServiceFactory)->create('imgur');
-        $this->assertInstanceOf(peter\components\serviceBundle\Imgur::class, $imgurService);
+        $this->assertInstanceOf(peter\components\serviceBundle\Services\Imgur::class, $imgurService);
     }
-    
+
     /** @test */
     public function throwsExceptionWhenFileIsNotFound()
     {
@@ -23,7 +23,7 @@ class ImgurTest extends TestCase
             $path .= '\\image.PNG';
         }
 
-        $configs = [
+        $config = [
             'service-name' => 'imgur',
             'clientID' => '3aa5c24753e1656',
             'filePath' => './image123.png',
@@ -31,7 +31,7 @@ class ImgurTest extends TestCase
 
         try {
             $imgurService = (new ServiceFactory)->create('imgur');
-            $imgurService->setConfigs($configs);
+            $imgurService->setConfig($config);
             $response = $imgurService->sendReq();
         } catch(Exception $e) {
             $this->assertSame('file not found', $e->getMessage());
@@ -49,13 +49,13 @@ class ImgurTest extends TestCase
             $path .= '\\image.PNG';
         }
 
-        $configs = [
+        $config = [
             'clientID' => '3aa5c24753e1656',
             'filePath' => $path
         ];
 
         $imgurService = (new ServiceFactory)->create('imgur');
-        $imgurService->setConfigs($configs);
+        $imgurService->setConfig($config);
         $response = $imgurService->sendReq();
 
         $this->assertSame(true, $response['success']);

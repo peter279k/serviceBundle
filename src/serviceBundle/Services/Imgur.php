@@ -2,24 +2,26 @@
 
 namespace peter\components\serviceBundle\Services;
 
+use peter\components\serviceBundle\Service;
+
 class Imgur implements Service
 {
-    private $configs;
+    private $config;
 
-    public function setConfigs($configs)
+    public function setConfig($config)
     {
-        $this->configs = $configs;
+        $this->config = $config;
     }
     
     public function sendReq()
     {
-        if (!file_exists($this->configs['filePath'])) {
+        if (!file_exists($this->config['filePath'])) {
             throw new \Exception('file not found');
         }
 
-        $imageFile = file_get_contents($this->configs['filePath']);
+        $imageFile = file_get_contents($this->config['filePath']);
         $httpConfig = ['defaults' => [
-                    'headers' => ['Authorization' => 'Client-ID '.$this->configs['clientID']],
+                    'headers' => ['Authorization' => 'Client-ID '.$this->config['clientID']],
                 ],
             ];
 

@@ -2,7 +2,8 @@
 
 namespace peter\components\serviceBundle;
 
-// use peter\components\serviceBundle\Mailgun as Mailgun;
+use peter\components\serviceBundle\Services\Imgur;
+use peter\components\serviceBundle\Services\Mailgun;
 
 class ServiceFactory
 {
