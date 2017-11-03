@@ -8,6 +8,7 @@ use peter\components\serviceBundle\Services\ImageShack;
 use peter\components\serviceBundle\Services\Bitly;
 use peter\components\serviceBundle\Services\McAfee;
 use peter\components\serviceBundle\Services\Google;
+use peter\components\serviceBundle\Services\SendGrid;
 
 class ServiceFactory
 {
@@ -31,6 +32,9 @@ class ServiceFactory
                     break;
                 case 'google':
                     return new Google();
+                    break;
+                case 'sendgrid':
+                    return new SendGrid();
                     break;
                 default:
                     throw new \Exception('Service does not exist');
