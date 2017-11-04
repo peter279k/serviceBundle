@@ -4,7 +4,7 @@ namespace peter\components\serviceBundle;
 
 class ServiceFactory
 {
-    public function create($service) 
+    public function create($service)
     {
         $service = 'peter\components\serviceBundle\Services\\'.$service;
         if (class_exists($service)) {

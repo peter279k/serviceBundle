@@ -6,7 +6,8 @@ abstract class Service
 {
     protected $config;
 
-    public function setConfig($config) {
+    public function setConfig($config)
+    {
         $this->config = $config;
     }
 

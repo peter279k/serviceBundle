@@ -22,7 +22,7 @@ class SendGridTest extends TestCase
             'headers'=> []
         ]);
 
-         $config = [
+        $config = [
             'api-key' => 'SG.A123455',
             'from-name' => 'John Doe',
             'from-email' => 'john.doe@gmail.com',

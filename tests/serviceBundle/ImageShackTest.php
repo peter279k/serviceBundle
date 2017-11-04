@@ -15,7 +15,7 @@ class ImageShackTest extends TestCase
     /** @test */
     public function throwsExceptionWhenFileIsNotFound()
     {
-      $path = __DIR__.'/image123.PNG';
+        $path = __DIR__.'/image123.PNG';
         $os = PHP_OS;
 
         if ($os == 'WINNT') {
@@ -33,7 +33,7 @@ class ImageShackTest extends TestCase
             $imageShackService = (new ServiceFactory)->create('imageshack');
             $imageShackService->setConfig($config);
             $response = $imageShackService->sendReq();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->assertSame('file not found', $e->getMessage());
         }
     }
@@ -41,7 +41,7 @@ class ImageShackTest extends TestCase
     /** @test */
     public function canSendReq()
     {
-      $path = __DIR__.'/image.PNG';
+        $path = __DIR__.'/image.PNG';
         $os = PHP_OS;
 
         if ($os == 'WINNT') {

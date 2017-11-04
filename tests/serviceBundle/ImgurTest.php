@@ -15,7 +15,7 @@ class ImgurTest extends TestCase
     /** @test */
     public function throwsExceptionWhenFileIsNotFound()
     {
-       $path = __DIR__.'/image.PNG';
+        $path = __DIR__.'/image.PNG';
         $os = PHP_OS;
 
         if ($os == 'WINNT') {
@@ -32,7 +32,7 @@ class ImgurTest extends TestCase
             $imgurService = (new ServiceFactory)->create('imgur');
             $imgurService->setConfig($config);
             $response = $imgurService->sendReq();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->assertSame('file not found', $e->getMessage());
         }
     }
@@ -40,7 +40,7 @@ class ImgurTest extends TestCase
     /** @test */
     public function canSendReq()
     {
-       $path = __DIR__.'/image.PNG';
+        $path = __DIR__.'/image.PNG';
         $os = PHP_OS;
 
         if ($os == 'WINNT') {

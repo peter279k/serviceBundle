@@ -10,7 +10,7 @@ class ServiceFactoryTest extends TestCase
     {
         try {
             $badService = (new ServiceFactory)->create('bad');
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->assertSame('Service does not exist', $e->getMessage());
         }
     }
