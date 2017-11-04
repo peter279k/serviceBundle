@@ -4,15 +4,8 @@ namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
 
-class SendGrid implements Service
+class SendGrid extends Service
 {
-    private $config;
-
-    public function setConfig($config)
-    {
-        $this->config = $config;
-    }
-
     public function sendReq()
     {
         $sandboxMode = $this->config['sandbox-mode'] ? true : false;

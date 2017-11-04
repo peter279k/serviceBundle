@@ -4,15 +4,8 @@ namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
 
-class ImageShack implements Service
+class ImageShack extends Service
 {
-    private $config;
-
-    public function setConfig($config)
-    {
-        $this->config = $config;
-    }
-
     public function sendReq()
     {
         $filePath = $this->config['filePath'];

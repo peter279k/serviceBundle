@@ -4,15 +4,8 @@ namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
 
-class Google implements Service
+class Google extends Service
 {
-    private $config;
-
-    public function setConfig($config)
-    {
-        $this->config = $config;
-    }
-
     public function sendReq()
     {
         $apiURL = 'https://www.googleapis.com/urlshortener/v1/url?key='.$this->config['apiKey'];

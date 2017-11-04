@@ -4,15 +4,8 @@ namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
 
-class McAfee implements Service
+class McAfee extends Service
 {
-    private $config;
-
-    public function setConfig($config)
-    {
-        $this->config = $config;
-    }
-
     public function sendReq()
     {
         $url = 'http://mcaf.ee/api/shorten?input_url='.$this->config['longUrl'];

@@ -2,8 +2,13 @@
 
 namespace peter\components\serviceBundle;
 
-interface Service
+abstract class Service
 {
-    public function setConfig($config);
-    public function sendReq();
+    protected $config;
+
+    public function setConfig($config) {
+        $this->config = $config;
+    }
+
+    abstract public function sendReq();
 }
