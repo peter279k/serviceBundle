@@ -8,7 +8,7 @@ class BitlyTest extends TestCase
     /** @test */
     public function isTypeOfBitly()
     {
-        $bitlyService = (new ServiceFactory)->create('bitly');
+        $bitlyService = (new ServiceFactory)->create(Bitly::class);
         $this->assertInstanceOf(peter\components\serviceBundle\Services\Bitly::class, $bitlyService);
     }
 
@@ -21,7 +21,7 @@ class BitlyTest extends TestCase
             'longUrl' => 'https://google.com.tw',
         ];
 
-        $bitlyService = (new ServiceFactory)->create('bitly');
+        $bitlyService = (new ServiceFactory)->create('Bitly');
         $bitlyService->setConfig($config);
         $response = $bitlyService->sendReq();
 
