@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require 'serviceBundle.php';
+require 'ServiceBundle.php';
 use peter\components\serviceBundle\ServiceBundle;
 
 /*

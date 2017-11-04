@@ -2,17 +2,23 @@
 <phpunit
     colors="true"
     bootstrap="./vendor/autoload.php"
-	type="coverage-text" target="src/serviceBundle/" charset="UTF-8">
-	
+    type="coverage-text" 
+    target="src/serviceBundle/" 
+    charset="UTF-8"
+    stopOnFailure="true">
+    <testsuites>
+      <testsuite name="serviceBundle Test Suite">
+        <directory suffix="Test.php">./tests/serviceBundle</directory>
+      </testsuite>
+    </testsuites>
     <filter>
-		
 		<whitelist processUncoveredFilesFromWhitelist="true">
 			<directory suffix=".php">./src/serviceBundle/serviceBundle.php</directory>
 		</whitelist>
 	</filter>
 	
-	 <logging>
+<!-- 	 <logging>
         <log type="coverage-clover" target="clover.xml"/>
-    </logging>
+    </logging> -->
 	
 </phpunit>
