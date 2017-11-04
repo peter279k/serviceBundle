@@ -8,7 +8,7 @@ class BitlyTest extends TestCase
     /** @test */
     public function isTypeOfBitly()
     {
-        $bitlyService = (new ServiceFactory)->create(Bitly::class);
+        $bitlyService = (new ServiceFactory)->create('Bitly');
         $this->assertInstanceOf(peter\components\serviceBundle\Services\Bitly::class, $bitlyService);
     }
 
