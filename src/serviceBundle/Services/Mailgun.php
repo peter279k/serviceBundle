@@ -8,7 +8,6 @@ class Mailgun extends Service
 {
     public function sendReq()
     {
-        $res = null;
         $httpConfig = ['defaults' => [
             'auth' => [
                     'api', $this->config['api-key']
