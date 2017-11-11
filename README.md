@@ -58,7 +58,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```php
   require 'vendor/autoload.php';
   $config = [
-		'service-name' => 'imgur',
+		'service-name' => 'Imgur',
 		'clientID' => 'imgur-client-id',
 		'filePath' => '/path/to/image.png'
   ];
@@ -71,7 +71,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```php
   require 'vendor/autoload.php';
   $config = [
-		'service-name' => 'imageshack',
+		'service-name' => 'ImageShack',
 		'key' => 'your-Imageshack-api-key',
 		//specify the image max file size
 		'maxFileSize' => '5242880'
@@ -86,7 +86,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```php
   require 'vendor/autoload.php';
   $config = [
-		'service-name' => 'McAf.ee',
+		'service-name' => 'McAfee',
 		'longUrl' => 'your-long-url'
   ];
   $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
@@ -97,7 +97,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```php
   require 'vendor/autoload.php';
   $config = [
-		'service-name' => 'goo.gl',
+		'service-name' => 'Google',
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
   ];
@@ -109,7 +109,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```php
   require 'vendor/autoload.php';
   $config = [
-		'service-name' => 'bit.ly',
+		'service-name' => 'Bitly',
 		'login' => 'your-login',
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
@@ -131,6 +131,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 + Using the PHPUnit ```Mock``` to test the HTTP API requests.
 + The version 2 is deprecated.
 + Update the Guzzle version to 6.2
++ Change the ```service-name``` value in ```$config``` array.
 
 #### 2016/07/20
 + version: v1.2.7
@@ -157,4 +158,4 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 
 [serviceBundle-1-repo](https://github.com/peter279k/serviceBundle/tree/master)
 
-[serviceBundle-2-repo](https://github.com/peter279k/serviceBundle/tree/guzzle6)
+[serviceBundle-2-repo(deprecated)](https://github.com/peter279k/serviceBundle/tree/guzzle6)
