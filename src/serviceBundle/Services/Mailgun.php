@@ -22,6 +22,6 @@ class Mailgun extends Service
                 'auth' => ['api', $this->configs["api-key"]]
             ]);
 
-        return json_decode($res->getBody(), true);;
+        return json_decode($res->getBody(), true);
     }
 }
