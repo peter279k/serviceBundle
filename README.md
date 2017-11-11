@@ -126,10 +126,10 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 ### Changelog
 #### 2017/11/11
 + version: 1.3
-+ The new version is change the namespace
++ Change the namespace and see the sample code to know this.
 + Change the source code(code refactoring)
 + Using the PHPUnit ```Mock``` to test the HTTP API requests.
-+ The version 2 is deprecated.
++ The version 2.x is deprecated.
 + Update the Guzzle version to 6.2
 + Change the ```service-name``` value in ```$config``` array.
 
