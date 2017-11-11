@@ -1,26 +1,31 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\Google;
 
 class GoogleTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfBitly()
+    public function testIsTypeOfGoogle()
     {
-        $googleService = (new ServiceFactory)->create('google');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\Google::class, $googleService);
+        $googleService = (new ServiceFactory)->create('Google');
+        $this->assertInstanceOf(Google::class, $googleService);
     }
 
-    /** @test */
-    public function canSendReq()
+    public function testShouldSendReq()
     {
+        $googleService = $this->getMockBuilder('peter\components\serviceBundle\Services\Google')->getMock();
+        $googleService->method('sendReq')->willReturn([
+            'id' => 'http://goo.gl/short_url_name',
+        ]);
+
         $config = [
-            'apiKey' => 'AIzaSyDZejNxp_e-AKPWujI_cNBTpg2lAC4GBxU',
+            'apiKey' => 'google_api_key',
             'longUrl' => 'https://google.com.tw',
         ];
 
-        $googleService = (new ServiceFactory)->create('google');
         $googleService->setConfig($config);
         $response = $googleService->sendReq();
 

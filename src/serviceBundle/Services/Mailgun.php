@@ -3,6 +3,7 @@
 namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
+use GuzzleHttp\Client;
 
 class Mailgun extends Service
 {
@@ -16,8 +17,7 @@ class Mailgun extends Service
             ]
         ];
 
-        $httpClient = new \GuzzleHttp\Client($httpConfig);
-        $httpClient->setDefaultOption('verify', false);
+        $httpClient = new Client($httpConfig);
         $res = $httpClient->post('https://api.mailgun.net/v3/'.$this->config['domain-name'].'/messages', [
                 'body' => [
                     'from' => $this->config['from'],

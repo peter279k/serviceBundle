@@ -1,25 +1,26 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\McAfee;
 
 class McAfeeTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfMcAfee()
+    public function testIsTypeOfMcAfee()
     {
-        $mcafeeService = (new ServiceFactory)->create('mcafee');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\McAfee::class, $mcafeeService);
+        $mcafeeService = (new ServiceFactory)->create('McAfee');
+        $this->assertInstanceOf(McAfee::class, $mcafeeService);
     }
 
-    /** @test */
-    public function canSendEmail()
+    public function testCanShortenUrl()
     {
         $config = [
             'longUrl' => 'https://google.com.tw'
         ];
 
-        $mcafeeService = (new ServiceFactory)->create('mcafee');
+        $mcafeeService = (new ServiceFactory)->create('McAfee');
         $mcafeeService->setConfig($config);
         $response = $mcafeeService->sendReq();
 

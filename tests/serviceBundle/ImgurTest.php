@@ -1,63 +1,52 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\Imgur;
 
 class ImgurTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfImgur()
+    public function testIsTypeOfImgur()
     {
-        $imgurService = (new ServiceFactory)->create('imgur');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\Imgur::class, $imgurService);
+        $imgurService = (new ServiceFactory)->create('Imgur');
+        $this->assertInstanceOf(Imgur::class, $imgurService);
     }
 
-    /** @test */
-    public function throwsExceptionWhenFileIsNotFound()
+    public function testThrowsExceptionWhenFileIsNotFound()
     {
-        $path = __DIR__.'/image.PNG';
-        $os = PHP_OS;
-
-        if ($os == 'WINNT') {
-            $path = str_replace('\\', '\\\\', __DIR__);
-            $path .= '\\image.PNG';
-        }
+        $this->expectException(\InvalidArgumentException::class);
 
         $config = [
             'clientID' => '3aa5c24753e1656',
             'filePath' => './image123.png',
         ];
 
-        try {
-            $imgurService = (new ServiceFactory)->create('imgur');
-            $imgurService->setConfig($config);
-            $response = $imgurService->sendReq();
-        } catch (Exception $e) {
-            $this->assertSame('file not found', $e->getMessage());
-        }
+        $imgurService = (new ServiceFactory)->create('Imgur');
+        $imgurService->setConfig($config);
+        $response = $imgurService->sendReq();
     }
 
-    /** @test */
-    public function canSendReq()
+    public function testCanSendReq()
     {
-        $path = __DIR__.'/image.PNG';
-        $os = PHP_OS;
+        $imgurService = $this->getMockBuilder('peter\components\serviceBundle\Services\Imgur')->getMock();
+        $imgurService->method('sendReq')->willReturn([
+            'success' => true,
+            'status' => 200,
+        ]);
 
-        if ($os == 'WINNT') {
-            $path = str_replace('\\', '\\\\', __DIR__);
-            $path .= '\\image.PNG';
-        }
+        $path = __DIR__.'/image.PNG';
 
         $config = [
-            'clientID' => '3aa5c24753e1656',
+            'clientID' => 'imagur_client_id',
             'filePath' => $path
         ];
 
-        $imgurService = (new ServiceFactory)->create('imgur');
         $imgurService->setConfig($config);
         $response = $imgurService->sendReq();
 
-        $this->assertSame(true, $response['success']);
+        $this->assertTrue($response['success']);
         $this->assertSame(200, $response['status']);
     }
 }

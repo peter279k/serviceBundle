@@ -3,6 +3,8 @@
 namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
+use GuzzleHttp\Post\PostFile;
+use GuzzleHttp\Client;
 
 class ImageShack extends Service
 {
@@ -11,19 +13,18 @@ class ImageShack extends Service
         $filePath = $this->config['filePath'];
 
         if (!file_exists($filePath)) {
-            throw new \Exception('file not found');
+            throw new \InvalidArgumentException('file not found');
         }
 
         $postBody = [
-            'fileupload' => new \GuzzleHttp\Post\PostFile('fileupload', fopen($filePath, 'r')),
+            'fileupload' => new PostFile('fileupload', fopen($filePath, 'r')),
             'key' => $this->config['key'],
             'format' => 'json',
             'max_file_size' => $this->config['maxFileSize'],
             'Content-type' => 'multipart/form-data',
         ];
 
-        $httpClient = new \GuzzleHttp\Client([]);
-        $httpClient->setDefaultOption('verify', false);
+        $httpClient = new Client([]);
         $res = $httpClient->post('http://imageshack.us/upload_api.php', [
                 'body' => $postBody,
             ]);

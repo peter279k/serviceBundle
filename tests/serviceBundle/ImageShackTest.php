@@ -1,65 +1,56 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\ImageShack;
 
 class ImageShackTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfImageShack()
+    public function testIsTypeOfImageShack()
     {
-        $imgurService = (new ServiceFactory)->create('imageshack');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\ImageShack::class, $imgurService);
+        $imgurService = (new ServiceFactory)->create('ImageShack');
+        $this->assertInstanceOf(ImageShack::class, $imgurService);
     }
 
-    /** @test */
-    public function throwsExceptionWhenFileIsNotFound()
+    public function testThrowsExceptionWhenFileIsNotFound()
     {
-        $path = __DIR__.'/image123.PNG';
-        $os = PHP_OS;
-
-        if ($os == 'WINNT') {
-            $path = str_replace('\\', '\\\\', __DIR__);
-            $path .= '\\image.PNG';
-        }
+        $this->expectException(\InvalidArgumentException::class);
 
         $config = [
-            'key' => '0156DGOW6788c018fc5882549c147ce6de6db0e7',
+            'key' => 'imageshack_api_key',
             'maxFileSize' => '5242880',
-            'filePath' => $path,
+            'filePath' => __DIR__.'/image123.PNG',
         ];
 
-        try {
-            $imageShackService = (new ServiceFactory)->create('imageshack');
-            $imageShackService->setConfig($config);
-            $response = $imageShackService->sendReq();
-        } catch (Exception $e) {
-            $this->assertSame('file not found', $e->getMessage());
-        }
-    }
-
-    /** @test */
-    public function canSendReq()
-    {
-        $path = __DIR__.'/image.PNG';
-        $os = PHP_OS;
-
-        if ($os == 'WINNT') {
-            $path = str_replace('\\', '\\\\', __DIR__);
-            $path .= '\\image.PNG';
-        }
-
-        $config = [
-            'key' => '0156DGOW6788c018fc5882549c147ce6de6db0e7',
-            'maxFileSize' => '5242880',
-            'filePath' => $path,
-        ];
-
-        $imgurService = (new ServiceFactory)->create('imageshack');
+        $imgurService = (new ServiceFactory)->create('ImageShack');
         $imgurService->setConfig($config);
         $response = $imgurService->sendReq();
+    }
 
-        $this->assertSame(1, (int) $response['status']);
+    public function testCanSendReq()
+    {
+        $imageShackService = $this->getMockBuilder('peter\components\serviceBundle\Services\ImageShack')->getMock();
+        $imageShackService->method('sendReq')->willReturn([
+            'status' => true,
+            'links' => [
+                'image_link' => 'http://imagizer.imageshack.com/short_url_name',
+            ],
+        ]);
+
+        $path = __DIR__.'/image.PNG';
+
+        $config = [
+            'key' => 'imageshack_api_key',
+            'maxFileSize' => '5242880',
+            'filePath' => $path,
+        ];
+
+        $imageShackService->setConfig($config);
+        $response = $imageShackService->sendReq();
+
+        $this->assertTrue($response['status']);
         $this->assertSame(0, (int) strpos($response['links']['image_link'], 'http://imagizer.imageshack.com'));
     }
 }

@@ -7,9 +7,16 @@
         "sendgrid/sendgrid": "~6.0"
     },
     "license": "MIT",
-     "autoload": {
+    "autoload": {
         "psr-4": {
-            "peter\\components\\": "src/"
+            "peter\\components\\serviceBundle\\": "src/serviceBundle",
+            "peter\\components\\serviceBundle\\Services\\": "src/serviceBundle/Services",
+            "peter\\components\\serviceBundle\\Exceptions\\": "src/serviceBundle/Exceptions"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "peter\\components\\serviceBundle\\Test\\": "src/tests/serviceBundle"
         }
     },
     "authors": [
@@ -22,6 +29,6 @@
         "phpunit/phpunit": "^6.2"
     },
     "scripts": {
-        "test": "vendor/phpunit/phpunit/phpunit src/serviceBundle/serviceBundleTest.php"
+        "test": "vendor/bin/phpunit --coverage-html=build --coverage-text --coverage-clover=coverage.xml"
     }
 }

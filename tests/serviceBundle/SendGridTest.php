@@ -1,19 +1,20 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\SendGrid;
 
 class SendGridTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfMailgun()
+    public function testIsTypeOfSendGrid()
     {
-        $sendGridService = (new ServiceFactory)->create('sendgrid');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\SendGrid::class, $sendGridService);
+        $sendGridService = (new ServiceFactory)->create('SendGrid');
+        $this->assertInstanceOf(SendGrid::class, $sendGridService);
     }
 
-    /** @test */
-    public function canSendEmail()
+    public function testCanSendEmail()
     {
         $sendGridService = $this->getMockBuilder('peter\components\serviceBundle\Services\SendGrid')->getMock();
         $sendGridService->method('sendReq')->willReturn([

@@ -3,6 +3,7 @@
 namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
+use GuzzleHttp\Client;
 
 class Imgur extends Service
 {
@@ -10,7 +11,7 @@ class Imgur extends Service
     {
         $filePath = $this->config['filePath'];
         if (!file_exists($filePath)) {
-            throw new \Exception('file not found');
+            throw new \InvalidArgumentException('file not found');
         }
 
         $imageFile = file_get_contents($filePath);
@@ -19,8 +20,7 @@ class Imgur extends Service
                 ],
             ];
 
-        $httpClient = new \GuzzleHttp\Client($httpConfig);
-        $httpClient->setDefaultOption('verify', false);
+        $httpClient = new Client($httpConfig);
         $res = $httpClient->post('https://api.imgur.com/3/image.json', [
                 'body' => ['image' => base64_encode($imageFile)]
             ]);
