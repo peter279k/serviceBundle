@@ -16,10 +16,10 @@ class Mailgun extends Service
                 'form_params'=>[
                     'from' => $this->config["from"],
                     'to' => $this->config["to"],
-                    'subject' => $this->configs["subject"],
-                    'text' => $this->configs["contents"]
+                    'subject' => $this->config["subject"],
+                    'text' => $this->config["contents"]
                 ],
-                'auth' => ['api', $this->configs["api-key"]]
+                'auth' => ['api', $this->config["api-key"]]
             ]);
 
         return json_decode($res->getBody(), true);
