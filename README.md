@@ -124,14 +124,6 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```
 
 ### Changelog
-#### 2017/11/11
-+ version: 1.3
-+ Change the namespace and see the sample code to know this.
-+ Change the source code(code refactoring)
-+ Using the PHPUnit ```Mock``` to test the HTTP API requests.
-+ The version 2.x is deprecated.
-+ Update the Guzzle version to 6.2
-+ Change the ```service-name``` value in ```$config``` array.
 
 #### 2016/07/20
 + version: v1.2.7
@@ -148,6 +140,16 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 #### 2016/07/21
 + version: v1.3.1
 + supporting the Imageshack API
+
+#### 2017/11/11
++ version: v1.4.0
++ Change the namespace and see the sample code to know this.
++ Change the source code(code refactoring)
++ Using the PHPUnit ```Mock``` to test the HTTP API requests.
++ The version 2.x is deprecated.
++ Update the Guzzle version to 6.2
++ Change the ```service-name``` value in ```$config``` array.
+
 
 ## Version Guidance
 
