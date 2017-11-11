@@ -18,6 +18,7 @@ class SendGrid extends Service
         $mail = new Mail($from, $this->config['subject'], $to, $content);
         $sendGrid = new \SendGrid($this->config['api-key']);
         $sendGrid->client->mail_settings()->setSandboxMode($sandboxMode);
+
         return $sendGrid->client->mail()->send()->post($mail);
     }
 }

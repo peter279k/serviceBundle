@@ -11,6 +11,8 @@ class Bitly extends Service
     {
         $url = 'http://api.bit.ly/v3/shorten?login='.$this->config['login'].'&apiKey='.$this->config['apiKey'].'&uri='.urlencode($this->config['longUrl']);
         $client = new Client();
-        return $client->get($url)->json();
+        $res = $client->get($url);
+
+        return json_decode($res->getBody(), true);
     }
 }

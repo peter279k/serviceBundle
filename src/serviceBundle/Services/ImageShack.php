@@ -17,18 +17,18 @@ class ImageShack extends Service
         }
 
         $postBody = [
-            'fileupload' => new PostFile('fileupload', fopen($filePath, 'r')),
-            'key' => $this->config['key'],
-            'format' => 'json',
-            'max_file_size' => $this->config['maxFileSize'],
-            'Content-type' => 'multipart/form-data',
+            'fileupload' => fopen($imageFilePath, 'r'),
+            'key' => $this -> configs['key'],
+            "format" => 'json',
+            'max_file_size' => $this -> configs['maxFileSize'],
+            'Content-type' => 'multipart/form-data'
         ];
 
-        $httpClient = new Client([]);
+        $httpClient = new Client();
         $res = $httpClient->post('http://imageshack.us/upload_api.php', [
-                'body' => $postBody,
+                'form_params' => $postBody,
             ]);
 
-        return $res->json();
+        return json_decode($res->getBody(), true);
     }
 }

@@ -15,16 +15,16 @@ class Imgur extends Service
         }
 
         $imageFile = file_get_contents($filePath);
-        $httpConfig = ['defaults' => [
-                    'headers' => ['Authorization' => 'Client-ID '.$this->config['clientID']],
-                ],
-            ];
 
         $httpClient = new Client($httpConfig);
-        $res = $httpClient->post('https://api.imgur.com/3/image.json', [
-                'body' => ['image' => base64_encode($imageFile)]
-            ]);
 
-        return $res->json();
+        $res = $httpClient -> request('POST', 'https://api.imgur.com/3/image.json', [
+            'form_params' => [
+                'image' => base64_encode($imageFile)
+            ],
+            'headers' => ['Authorization' => 'Client-ID ' . $this->config["clientID"]]
+        ]);
+
+        return json_decode($res->getBody(), true);
     }
 }

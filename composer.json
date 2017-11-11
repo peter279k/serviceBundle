@@ -4,7 +4,7 @@
     "type": "api",
     "require": {
         "php": ">=5.6",
-        "guzzlehttp/guzzle": "^5.3",
+        "guzzlehttp/guzzle": "^6.2",
         "sendgrid/sendgrid": "~6.0"
     },
     "license": "MIT",

@@ -10,10 +10,10 @@ class ServiceFactory
     {
         $service = '\peter\components\serviceBundle\Services\/'.$service;
         $service = str_replace('/', '', $service);
-        if (class_exists($service)) {
-            return new $service();
+        if (!class_exists($service)) {
+            throw new UnknownServiceNameException('The Service name does not existed');
         }
 
-        throw new UnknownServiceNameException('The Service name does not existed');
+        return new $service();
     }
 }

@@ -15,9 +15,12 @@ class Google extends Service
                     'headers' => ['Content-Type', 'application/json'],
                 ],
             ]);
+        $res = $client->post($apiURL, [
+                'json' => [
+                    'longUrl' => $this->config['longUrl']
+                ],
+            ]);
 
-        return $client->post($apiURL, [
-                'json' => ['longUrl' => $this->config['longUrl']],
-            ])->json();
+        return json_decode($res->getBody(), true);
     }
 }

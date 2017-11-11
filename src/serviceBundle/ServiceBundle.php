@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace peter\components\serviceBundle;
 
@@ -15,6 +15,7 @@ class ServiceBundle
     {
         $factory = ServiceFactory::create($this->configs['service-name']);
         $factory->setConfig($this->configs);
+
         return $factory->sendReq();
     }
 }

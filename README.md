@@ -14,7 +14,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 |-------------|-------|------------|
 | [mailgun](https://www.mailgun.com/)| Yes   | mailing service |
 | [mailjet](http://dev.mailjet.com/guides/?php#about-the-mailjet-restful-api) | No | mailing service |
-| [sendgrid](https://sendgrid.com/)    | No    | mailing service |
+| [sendgrid](https://sendgrid.com/)    | Yes    | mailing service |
 | [Imgur](http://imgur.com/)       | Yes   | uploading images service |
 | [Imageshack](https://www.imageshack.us)       | Yes   | uploading images service |
 | [bit.ly](https://bitly.com/)      | Yes    | shorten url service |
@@ -38,8 +38,8 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   Mailgun: a sending mail service
   ```php
   require 'vendor/autoload.php';
-  $config = array(
-      'service-name' => 'mailgun',
+  $config = [
+      'service-name' => 'Mailgun',
       //e.g. key-98dXXXXXXX
       'api-key' => 'mailgun-api-key',
       //e.g. sandbox5099cXXXXXXXXXXXXXXXXXXX
@@ -49,20 +49,20 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       'subject' => 'Hello',
       //contents supported only plain text now.
       'contents' => 'Mailgun is awesome !'
-  );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  ];
+  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (mailgun standard api response via cURL)
-  var_dump($bundle -> sendReq());
+  var_dump($bundle->sendReq());
   ```
   Imgur: an uploading images service
   ```php
   require 'vendor/autoload.php';
-  $config = array(
+  $config = [
 		'service-name' => 'imgur',
 		'clientID' => 'imgur-client-id',
 		'filePath' => '/path/to/image.png'
-  );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  ];
+  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (Imgur standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -70,14 +70,14 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   Imageshack: an uploading images service
   ```php
   require 'vendor/autoload.php';
-  $config = array(
+  $config = [
 		'service-name' => 'imageshack',
 		'key' => 'your-Imageshack-api-key',
 		//specify the image max file size
 		'maxFileSize' => '5242880'
 		'filePath' => '/path/to/image.png'
-  );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  ];
+  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (Imgur standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -85,36 +85,36 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   McAf: a shorten url service
   ```php
   require 'vendor/autoload.php';
-  $config = array(
+  $config = [
 		'service-name' => 'McAf.ee',
 		'longUrl' => 'your-long-url'
-  );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  ];
+  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (McAf standard api response via cURL)
-  var_dump($bundle -> sendReq());
+  var_dump($bundle->sendReq());
   ```
   goo.gl: a shorten url service
   ```php
   require 'vendor/autoload.php';
-  $config = array(
+  $config = [
 		'service-name' => 'goo.gl',
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
-  );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  ];
+  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (goo.gl standard api response via cURL)
-  var_dump($bundle -> sendReq());
+  var_dump($bundle->sendReq());
   ```
   bit.ly: a shorten url service
   ```php
   require 'vendor/autoload.php';
-  $config = array(
+  $config = [
 		'service-name' => 'bit.ly',
 		'login' => 'your-login',
 		'apiKey' => 'your-api-key',
 		'longUrl' => 'your-long-url'
-  );
-  $bundle = new \peter\components\serviceBundle\serviceBundle($config);
+  ];
+  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (bit.ly standard api response via cURL)
   var_dump($bundle -> sendReq());
   ```
@@ -124,6 +124,14 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ```
 
 ### Changelog
+#### 2017/11/11
++ version: 1.3
++ The new version is change the namespace
++ Change the source code(code refactoring)
++ Using the PHPUnit ```Mock``` to test the HTTP API requests.
++ The version 2 is deprecated.
++ Update the Guzzle version to 6.2
+
 #### 2016/07/20
 + version: v1.2.7
 + Using the new version of Guzzle 5 and avoid the Httpoxy vulnerability.
@@ -145,7 +153,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 | Version | Status      | Packagist           | Namespace    | PSR-7 |
 |---------|-------------|---------------------|--------------|-------|
 | 1.x     | Maintained  | `lee/service-bundle` | `peter\components\serviceBundle\serviceBundle` | No    |
-| 2.x     | Latest      | `lee/service-bundle` | `peter\components\ServiceBundle` | No    |
+| 2.x     | Deprecated      | `lee/service-bundle` | `peter\components\ServiceBundle` | No    |
 
 [serviceBundle-1-repo](https://github.com/peter279k/serviceBundle/tree/master)
 

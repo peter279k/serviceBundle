@@ -10,23 +10,18 @@ class Mailgun extends Service
     public function sendReq()
     {
         $res = null;
-        $httpConfig = ['defaults' => [
-            'auth' => [
-                    'api', $this->config['api-key']
-                ]
-            ]
-        ];
 
-        $httpClient = new Client($httpConfig);
-        $res = $httpClient->post('https://api.mailgun.net/v3/'.$this->config['domain-name'].'/messages', [
-                'body' => [
-                    'from' => $this->config['from'],
-                    'to' => $this->config['to'],
-                    'subject' => $this->config['subject'],
-                    'text' => $this->config['contents']
-                ]
+        $httpClient = new Client();
+        $res = $httpClient->request('POST', 'https://api.mailgun.net/v3/'.$this->config['domain-name'].'/messages', [
+                'form_params'=>[
+                    'from' => $this->config["from"],
+                    'to' => $this->config["to"],
+                    'subject' => $this->configs["subject"],
+                    'text' => $this->configs["contents"]
+                ],
+                'auth' => ['api', $this->configs["api-key"]]
             ]);
 
-        return $res->json();
+        return json_decode($res->getBody(), true);;
     }
 }

@@ -11,6 +11,8 @@ class McAfee extends Service
     {
         $url = 'http://mcaf.ee/api/shorten?input_url='.$this->config['longUrl'];
         $client = new Client();
-        return $client->get($url)->json();
+        $res = $client->get($url);
+
+        return json_decode($res->getBody(), true);
     }
 }
