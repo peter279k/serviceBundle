@@ -67,7 +67,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   var_dump($bundle -> sendReq());
   ```
 
-  Imageshack: an uploading images service
+  ImageShack: an uploading images service
   ```php
   require 'vendor/autoload.php';
   $config = [
@@ -82,7 +82,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   var_dump($bundle -> sendReq());
   ```
 
-  McAf: a shorten url service
+  McAfee: a shorten url service
   ```php
   require 'vendor/autoload.php';
   $config = [
@@ -93,7 +93,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   //return json format (McAf standard api response via cURL)
   var_dump($bundle->sendReq());
   ```
-  goo.gl: a shorten url service
+  Google shorten url service: a shorten url service
   ```php
   require 'vendor/autoload.php';
   $config = [
@@ -105,7 +105,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   //return json format (goo.gl standard api response via cURL)
   var_dump($bundle->sendReq());
   ```
-  bit.ly: a shorten url service
+  Bitly: a shorten url service
   ```php
   require 'vendor/autoload.php';
   $config = [
