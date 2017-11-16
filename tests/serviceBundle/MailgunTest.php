@@ -1,19 +1,20 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\MailGun;
 
 class MailgunTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfMailgun()
+    public function testIsTypeOfMailgun()
     {
-        $mailgunService = (new ServiceFactory)->create('mailgun');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\Mailgun::class, $mailgunService);
+        $mailgunService = (new ServiceFactory)->create('Mailgun');
+        $this->assertInstanceOf(Mailgun::class, $mailgunService);
     }
 
-    /** @test */
-    public function canSendEmail()
+    public function testCanSendEmail()
     {
         $mailgunService = $this->getMockBuilder('peter\components\serviceBundle\Services\Mailgun')->getMock();
         $mailgunService->method('sendReq')->willReturn([

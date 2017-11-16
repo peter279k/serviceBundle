@@ -3,14 +3,21 @@
     "description": "Intergated with mailing service,uploading image service and so on.",
     "type": "api",
     "require": {
-        "guzzlehttp/guzzle": "^5.3",
-        "sendgrid/sendgrid": "~6.0",
-        "mailjet/mailjet-apiv3-php": "^1.2"
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "^6.2",
+        "sendgrid/sendgrid": "~6.0"
     },
     "license": "MIT",
-     "autoload": {
+    "autoload": {
         "psr-4": {
-            "peter\\components\\": "src/"
+            "peter\\components\\serviceBundle\\": "src/serviceBundle",
+            "peter\\components\\serviceBundle\\Services\\": "src/serviceBundle/Services",
+            "peter\\components\\serviceBundle\\Exceptions\\": "src/serviceBundle/Exceptions"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "peter\\components\\serviceBundle\\Test\\": "src/tests/serviceBundle"
         }
     },
     "authors": [
@@ -20,9 +27,9 @@
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "^6.2"
+        "phpunit/phpunit": "^5.7"
     },
     "scripts": {
-        "test": "vendor/phpunit/phpunit/phpunit src/serviceBundle/serviceBundleTest.php"
+        "test": "vendor/bin/phpunit --coverage-html=build --coverage-text --coverage-clover=coverage.xml"
     }
 }

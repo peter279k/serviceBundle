@@ -1,27 +1,35 @@
 <?php
 
+namespace peter\components\serviceBundle\Test;
+
 use PHPUnit\Framework\TestCase;
 use peter\components\serviceBundle\ServiceFactory;
+use peter\components\serviceBundle\Services\Bitly;
 
 class BitlyTest extends TestCase
 {
-    /** @test */
-    public function isTypeOfBitly()
+    public function testIsTypeOfBitly()
     {
         $bitlyService = (new ServiceFactory)->create('Bitly');
-        $this->assertInstanceOf(peter\components\serviceBundle\Services\Bitly::class, $bitlyService);
+        $this->assertInstanceOf(Bitly::class, $bitlyService);
     }
 
-    /** @test */
-    public function canSendReq()
+    public function testShouldSendReq()
     {
+        $bitlyService = $this->getMockBuilder('peter\components\serviceBundle\Services\Bitly')->getMock();
+        $bitlyService->method('sendReq')->willReturn([
+            'status_code' => 200,
+            'data' => [
+                'url' => 'http://bit.ly/short_url_name'
+            ]
+        ]);
+
         $config = [
-            'login' => 'o_2tl6qii96h',
-            'apiKey' => 'R_3bf8524a894244089b999e10701d5e0e',
+            'login' => 'o_api_key',
+            'apiKey' => 'R_bitly_key',
             'longUrl' => 'https://google.com.tw',
         ];
 
-        $bitlyService = (new ServiceFactory)->create('Bitly');
         $bitlyService->setConfig($config);
         $response = $bitlyService->sendReq();
 

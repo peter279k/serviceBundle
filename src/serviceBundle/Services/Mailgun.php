@@ -3,29 +3,25 @@
 namespace peter\components\serviceBundle\Services;
 
 use peter\components\serviceBundle\Service;
+use GuzzleHttp\Client;
 
 class Mailgun extends Service
 {
     public function sendReq()
     {
-        $httpConfig = ['defaults' => [
-            'auth' => [
-                    'api', $this->config['api-key']
-                ]
-            ]
-        ];
+        $res = null;
 
-        $httpClient = new \GuzzleHttp\Client($httpConfig);
-        $httpClient->setDefaultOption('verify', false);
-        $res = $httpClient->post('https://api.mailgun.net/v3/'.$this->config['domain-name'].'/messages', [
-                'body' => [
-                    'from' => $this->config['from'],
-                    'to' => $this->config['to'],
-                    'subject' => $this->config['subject'],
-                    'text' => $this->config['contents']
-                ]
+        $httpClient = new Client();
+        $res = $httpClient->request('POST', 'https://api.mailgun.net/v3/'.$this->config['domain-name'].'/messages', [
+                'form_params'=>[
+                    'from' => $this->config["from"],
+                    'to' => $this->config["to"],
+                    'subject' => $this->config["subject"],
+                    'text' => $this->config["contents"]
+                ],
+                'auth' => ['api', $this->config["api-key"]]
             ]);
 
-        return $res->json();
+        return json_decode($res->getBody(), true);
     }
 }

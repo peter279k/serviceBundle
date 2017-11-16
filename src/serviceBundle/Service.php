@@ -11,5 +11,10 @@ abstract class Service
         $this->config = $config;
     }
 
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
     abstract public function sendReq();
 }

@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<phpunit
-    colors="true"
-    bootstrap="./vendor/autoload.php"
-    type="coverage-text" 
-    target="src/serviceBundle/" 
-    charset="UTF-8"
-    stopOnFailure="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+>
     <testsuites>
-      <testsuite name="serviceBundle Test Suite">
-        <directory suffix="Test.php">./tests/serviceBundle</directory>
-      </testsuite>
+        <testsuite name="ServiceBundle Test Suite">
+            <directory>./tests/</directory>
+        </testsuite>
     </testsuites>
+
     <filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">./src/serviceBundle/serviceBundle.php</directory>
-		</whitelist>
-	</filter>
-	
-<!-- 	 <logging>
-        <log type="coverage-clover" target="clover.xml"/>
-    </logging> -->
-	
+        <whitelist>
+            <directory>./src</directory>
+        </whitelist>
+    </filter>
 </phpunit>
