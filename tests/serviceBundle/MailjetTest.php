@@ -6,14 +6,14 @@ use peter\components\serviceBundle\ServiceFactory;
 class MailjetTest extends TestCase
 {
     /** @test */
-    public function isTypeOfMailgun()
+    public function testIsTypeOfMailjet()
     {
-        $mailjetService = (new ServiceFactory)->create('mailjet');
+        $mailjetService = (new ServiceFactory)->create('Mailjet');
         $this->assertInstanceOf(peter\components\serviceBundle\Services\Mailjet::class, $mailjetService);
     }
 
     /** @test */
-    public function canSendEmail()
+    public function testCanSendEmail()
     {
         $config = [
             'api-key-public' => '1234567890',
@@ -36,7 +36,7 @@ class MailjetTest extends TestCase
     }
 
     /** @test */
-    public function getsErrorWhenCredentialsAreInvalid()
+    public function testGetsErrorWhenCredentialsAreInvalid()
     {
         $config = [
             'api-key-public' => '1234567890',
