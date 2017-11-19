@@ -155,8 +155,8 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 
 | Version | Status      | Packagist           | Namespace    | PSR-7 |
 |---------|-------------|---------------------|--------------|-------|
-| 1.x     | Maintained  | `lee/service-bundle` | `peter\components\serviceBundle\serviceBundle` | No    |
-| 2.x     | Deprecated      | `lee/service-bundle` | `peter\components\ServiceBundle` | No    |
+| 1.x     | Maintained  | `lee/service-bundle` | `peter\components\serviceBundle` | No    |
+| 2.x     | **Deprecated      | `lee/service-bundle` | `peter\components\ServiceBundle` | No    |
 
 [serviceBundle-1-repo](https://github.com/peter279k/serviceBundle/tree/master)
 
