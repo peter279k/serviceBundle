@@ -66,7 +66,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       'subject' => 'SendGrid Test',
       'contents' => 'Sendgrid is awesome!',
   ];
-  $service = (new ServiceFactory)->create('SendGrid');
+  $service = (new peter\components\serviceBundle\Services\ServiceFactory)->create('SendGrid');
   $service->setConfig($config);
   //return json format (SendGrid standard api response via cURL)
   var_dump($service->sendReq());
@@ -84,7 +84,7 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
       'subject' => 'Mailjet Test',
       'contents' => 'Mailjet is awesome!',
   ];
-  $service = (new ServiceFactory)->create('Mailjet');
+  $service = (new peter\components\serviceBundle\Services\ServiceFactory)->create('Mailjet');
   $service->setConfig($config);
   //return json format (Mailjet standard api response via cURL)
   var_dump($service->sendReq());
