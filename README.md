@@ -54,6 +54,41 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   //return json format (mailgun standard api response via cURL)
   var_dump($bundle->sendReq());
   ```
+  SendGrid: a sending mail service
+  ```php
+  require 'vendor/autoload.php';
+  $config = [
+      'api-key' => 'sendgrid-api-key',
+      'from-name' => 'John Doe',
+      'from-email' => 'john.doe@gmail.com',
+      'to-name' => 'John Doe',
+      'to-email' => 'john.doe@gmail.com',
+      'subject' => 'SendGrid Test',
+      'contents' => 'Sendgrid is awesome!',
+  ];
+  $service = (new peter\components\serviceBundle\Services\ServiceFactory)->create('SendGrid');
+  $service->setConfig($config);
+  //return json format (SendGrid standard api response via cURL)
+  var_dump($service->sendReq());
+  ```
+  Mailjet: a sending mail service
+  ```php
+  require 'vendor/autoload.php';
+  $config = [
+      'api-key-public' => 'mailjet-public-api-key',
+      'api-key-private' => 'mailjet-privave-api-key',
+      'from-name' => 'John Doe',
+      'from-email' => 'john.doe@gmail.com',
+      'to-name' => 'John Doe',
+      'to-email' => 'john.doe@gmail.com',
+      'subject' => 'Mailjet Test',
+      'contents' => 'Mailjet is awesome!',
+  ];
+  $service = (new peter\components\serviceBundle\Services\ServiceFactory)->create('Mailjet');
+  $service->setConfig($config);
+  //return json format (Mailjet standard api response via cURL)
+  var_dump($service->sendReq());
+  ```
   Imgur: an uploading images service
   ```php
   require 'vendor/autoload.php';
