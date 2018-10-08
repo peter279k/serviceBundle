@@ -18,7 +18,6 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
 | [Imgur](http://imgur.com/)       | Yes   | uploading images service |
 | [Imageshack](https://www.imageshack.us)       | Yes   | uploading images service |
 | [bit.ly](https://bitly.com/)      | Yes    | shorten url service |
-| [goo.gl](https://goo.gl/)      | Yes    | shorten url service |
 |[McAf.ee](https://community.mcafee.com/docs/DOC-1991)| Yes | shorten url service |
 
 ## Usage
@@ -91,18 +90,6 @@ It's based on [Guzzle](https://github.com/guzzle/guzzle),HTTP client.
   ];
   $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
   //return json format (McAf standard api response via cURL)
-  var_dump($bundle->sendReq());
-  ```
-  Google shorten url service: a shorten url service
-  ```php
-  require 'vendor/autoload.php';
-  $config = [
-		'service-name' => 'Google',
-		'apiKey' => 'your-api-key',
-		'longUrl' => 'your-long-url'
-  ];
-  $bundle = new \peter\components\serviceBundle\ServiceBundle($config);
-  //return json format (goo.gl standard api response via cURL)
   var_dump($bundle->sendReq());
   ```
   Bitly: a shorten url service
